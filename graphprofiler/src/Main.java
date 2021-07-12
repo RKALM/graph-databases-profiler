@@ -11,6 +11,7 @@ public class Main {
         System.out.println("Welcome to profiler");
         System.out.println("===================");
         menu();
+        run();
     }
 
     public static void menu(){
@@ -53,5 +54,20 @@ public class Main {
         System.out.println("You decided to run " + repetititons + " repetitions for " + graphDatabse + " database" +
                 " and the " + crud + " operation");
 
+    } //end of menu
+
+    static void run(){
+        for(int x = 0; x<standarrepetitions; x++){
+            if(graphDatabse.equalsIgnoreCase("graphdb")){
+                //run graphdb script
+                System.out.println("Running the GraphDB #" + x);
+            } else if(graphDatabse.equalsIgnoreCase("orientdb")){
+                //run orientdb script
+                System.out.println("Running the OrientDB #" + x);
+            } else {
+                //run neo4j script
+                System.out.println("Running the neo4j #" + x);
+            }
+        }
     }
 }

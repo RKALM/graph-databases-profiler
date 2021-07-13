@@ -59,14 +59,96 @@ public class Main {
         for(int x = 0; x<repetititons; x++){
             if(graphDatabse.equalsIgnoreCase("graphdb")){
                 //run graphdb script
-                System.out.println("Running " + crud + " operation on the GraphDB #" + x);
+                System.out.println(" ");
+                System.out.println(" ");
+                System.out.println("=================================================");
+                System.out.println("Running " + crud + " operations on the GraphDB Round #" + x);
+                System.out.println("=================================================");
+                scriptGraphDB(crud);
             } else if(graphDatabse.equalsIgnoreCase("orientdb")){
                 //run orientdb script
-                System.out.println("Running " + crud + " operation on the OrientDB #" + x);
+                System.out.println(" ");
+                System.out.println(" ");
+                System.out.println("=================================================");
+                System.out.println("Running " + crud + " operations on the OrientDB Round #" + x);
+                System.out.println("=================================================");
+                scriptOrientDB(crud);
             } else {
                 //run neo4j script
-                System.out.println("Running " + crud + " operation on the Neo4j #" + x);
+                System.out.println(" ");
+                System.out.println(" ");
+                System.out.println("=================================================");
+                System.out.println("Running " + crud + " operations on the Neo4j Round #" + x);
+                System.out.println("=================================================");
+                scriptNeo4j(crud);
             }
         }
+    } //end of run
+
+
+    //=============================== Neo4j Scripts ========================================
+    //running a specific CRUD script on Neo4j for several intervals. it should store the statistics for each one.
+    static void scriptNeo4j(String operation){
+        System.out.println("Running " + operation + " script on the Neo4j for several intervals");
+        System.out.println("=================================================");
+        scriptNeo4jNtimes(operation, 10);
+        scriptNeo4jNtimes(operation, 100);
+
     }
+
+    //running a specific CRUD operation on Neo4j for N times. it should return the time that was taken
+    static void scriptNeo4jNtimes(String operation, int N){
+        System.out.println(" ");
+        System.out.println("Running " + operation + " script on the Neo4j for " + N + " operations");
+        System.out.println("===========================");
+        for(int x= 0; x<N; x++){
+            System.out.println("Running " + operation + " operation #" + x + " on Neo4j");
+        }
+    }
+    //=============================== End of Neo4j Scripts ========================================
+
+
+    //=============================== GraphDB Scripts ========================================
+    //running a specific CRUD script on GraphDB for several intervals. it should store the statistics for each one.
+    static void scriptGraphDB(String operation){
+        System.out.println("Running " + operation + " script on the GraphDB for several intervals");
+        System.out.println("=================================================");
+        scriptGraphDBNtimes(operation, 10);
+        scriptGraphDBNtimes(operation, 100);
+
+    }
+
+    //running a specific CRUD operation on GraphDB for N times. it should return the time that was taken
+    static void scriptGraphDBNtimes(String operation, int N){
+        System.out.println(" ");
+        System.out.println("Running " + operation + " script on the GraphDB for " + N + " operations");
+        System.out.println("===========================");
+        for(int x= 0; x<N; x++){
+            System.out.println("Running " + operation + " operation #" + x + " on GraphDB");
+        }
+    }
+    //=============================== End of GraphDB Scripts ========================================
+
+    //=============================== OrientDB Scripts ========================================
+    //running a specific CRUD script on OrientDB for several intervals. it should store the statistics for each one.
+    static void scriptOrientDB(String operation){
+        System.out.println("Running " + operation + " script on the OrientDB for several intervals");
+        System.out.println("=================================================");
+        scriptOrientDBNtimes(operation, 10);
+        scriptOrientDBNtimes(operation, 100);
+
+    }
+
+    //running a specific CRUD operation on OrientDB for N times. it should return the time that was taken
+    static void scriptOrientDBNtimes(String operation, int N){
+        System.out.println(" ");
+        System.out.println("Running " + operation + " script on the OrientDB for " + N + " operations");
+        System.out.println("===========================");
+        for(int x= 0; x<N; x++){
+            System.out.println("Running " + operation + " operation #" + x + " on OrientDB");
+        }
+    }
+    //=============================== End of OrientDB Scripts ========================================
+
+
 }

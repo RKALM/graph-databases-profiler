@@ -6,6 +6,20 @@ public class Main {
     static String graphDatabse = "neo4j"; //neo4j, graphdb pr orientdb
     public static Scanner in = new Scanner( System.in);
 
+    //========== Stuff for the timers ========================
+    private static Timer timer10N = new Timer();
+    private static Timer timer100N = new Timer();
+    private static Timer timer1000N = new Timer();
+    private static Timer timer10000N = new Timer();
+    private static Timer timer100000N = new Timer();
+    private static Timer timer1000000N = new Timer();
+    public static long[] times10n;
+    public static long[] times100n;
+    public static long[] times1000n;
+    public static long[] times10000n;
+    public static long[] times100000n;
+    public static long[] times1000000n;
+
     public static void main(String args[]){
         System.out.println("Welcome to profiler");
         System.out.println("===================");
@@ -16,6 +30,13 @@ public class Main {
     public static void menu(){
         System.out.println("How many repetitions, (for accuracy) you wish to do?");
         repetititons = Integer.parseInt(in.nextLine());
+        int numberOfSamples = repetititons;
+        times10n = new long[numberOfSamples];
+        times100n = new long[numberOfSamples];
+        times1000n = new long[numberOfSamples];
+        times10000n = new long[numberOfSamples];
+        times100000n = new long[numberOfSamples];
+        times1000000n = new long[numberOfSamples];
         System.out.println("You decided to run " + repetititons + " repetitions");
 
         //Declaring the protocol
@@ -80,7 +101,7 @@ public class Main {
                 System.out.println("=================================================");
                 System.out.println("Running " + crud + " operations on the Neo4j Round #" + x);
                 System.out.println("=================================================");
-                scriptNeo4j(crud);
+                scriptNeo4j(crud, x);
             }
         }
     } //end of run
@@ -88,11 +109,52 @@ public class Main {
 
     //=============================== Neo4j Scripts ========================================
     //running a specific CRUD script on Neo4j for several intervals. it should store the statistics for each one.
-    static void scriptNeo4j(String operation){
+    static void scriptNeo4j(String operation, int Xint){
         System.out.println("Running " + operation + " script on the Neo4j for several intervals");
         System.out.println("=================================================");
+        //10N
+        timer10N.startTimer();
         scriptNeo4jNtimes(operation, 10);
+        timer10N.stopTimer();
+        long time10n = timer10N.getTime();
+        if(time10n <0){
+            times10n[Xint] = 0;
+        } else {
+            times10n[Xint] = time10n;
+        }
+        System.out.println("=================================================");
+        System.out.println("Recorded time for Neo4j 10N is " + times10n[Xint]);
+        System.out.println("=================================================");
+        System.out.println("");
+
+        //100N
+        timer100N.startTimer();
         scriptNeo4jNtimes(operation, 100);
+        timer100N.stopTimer();
+        long time100n = timer100N.getTime();
+        if(time100n <0){
+            times100n[Xint] = 0;
+        } else {
+            times100n[Xint] = time100n;
+        }
+        System.out.println("=================================================");
+        System.out.println("Recorded time for Neo4j 100N is " + times100n[Xint]);
+        System.out.println("=================================================");
+        System.out.println("");
+
+        //final test display of the arrays.
+        System.out.println("Displaying the times10n array: ");
+        for(double x: times10n){
+            if(x>=0){
+                System.out.println(x);
+            }
+        }
+        System.out.println("Displaying the times100n array: ");
+        for(double x: times100n){
+            if(x>=0){
+                System.out.println(x);
+            }
+        }
 
     }
 

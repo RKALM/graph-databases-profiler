@@ -7,6 +7,7 @@ public class Main {
     public static Scanner in = new Scanner( System.in);
 
     //========== Stuff for the timers ========================
+    private static Timer genericTimer = new Timer();
     private static Timer timer10N = new Timer();
     private static Timer timer100N = new Timer();
     private static Timer timer1000N = new Timer();
@@ -113,10 +114,11 @@ public class Main {
         System.out.println("Running " + operation + " script on the Neo4j for several intervals");
         System.out.println("=================================================");
         //10N
-        timer10N.startTimer();
-        scriptNeo4jNtimes(operation, 10);
-        timer10N.stopTimer();
-        long time10n = timer10N.getTime();
+        //timer10N.startTimer();
+        //scriptNeo4jNtimes(operation, 10);
+        //timer10N.stopTimer();
+        //long time10n = timer10N.getTime();
+        long time10n = scriptNeo4jNtimes(operation, 10);
         if(time10n <0){
             times10n[Xint] = 0;
         } else {
@@ -128,10 +130,7 @@ public class Main {
         System.out.println("");
 
         //100N
-        timer100N.startTimer();
-        scriptNeo4jNtimes(operation, 100);
-        timer100N.stopTimer();
-        long time100n = timer100N.getTime();
+        long time100n = scriptNeo4jNtimes(operation, 100);
         if(time100n <0){
             times100n[Xint] = 0;
         } else {
@@ -142,15 +141,72 @@ public class Main {
         System.out.println("=================================================");
         System.out.println("");
 
+        //1000N
+        long time1000n = scriptNeo4jNtimes(operation, 1000);
+        if(time1000n <0){
+            times1000n[Xint] = 0;
+        } else {
+            times1000n[Xint] = time1000n;
+        }
+        System.out.println("=================================================");
+        System.out.println("Recorded time for Neo4j 1000N is " + times1000n[Xint]);
+        System.out.println("=================================================");
+        System.out.println("");
+
+        //10000N
+        long time10000n = scriptNeo4jNtimes(operation, 10000);
+        if(time10000n <0){
+            times10000n[Xint] = 0;
+        } else {
+            times10000n[Xint] = time10000n;
+        }
+        System.out.println("=================================================");
+        System.out.println("Recorded time for Neo4j 10000N is " + times10000n[Xint]);
+        System.out.println("=================================================");
+        System.out.println("");
+
+        //100000N
+        long time100000n = scriptNeo4jNtimes(operation, 100000);
+        if(time100000n <0){
+            times100000n[Xint] = 0;
+        } else {
+            times100000n[Xint] = time100000n;
+        }
+        System.out.println("=================================================");
+        System.out.println("Recorded time for Neo4j 100000N is " + times100000n[Xint]);
+        System.out.println("=================================================");
+        System.out.println("");
+
         //final test display of the arrays.
         System.out.println("Displaying the times10n array: ");
-        for(double x: times10n){
+        for(long x: times10n){
             if(x>=0){
                 System.out.println(x);
             }
         }
         System.out.println("Displaying the times100n array: ");
-        for(double x: times100n){
+        for(long x: times100n){
+            if(x>=0){
+                System.out.println(x);
+            }
+        }
+
+        System.out.println("Displaying the times1000n array: ");
+        for(long x: times1000n){
+            if(x>=0){
+                System.out.println(x);
+            }
+        }
+
+        System.out.println("Displaying the times10000n array: ");
+        for(long x: times10000n){
+            if(x>=0){
+                System.out.println(x);
+            }
+        }
+
+        System.out.println("Displaying the times100000n array: ");
+        for(long x: times100000n){
             if(x>=0){
                 System.out.println(x);
             }
@@ -159,13 +215,17 @@ public class Main {
     }
 
     //running a specific CRUD operation on Neo4j for N times. it should return the time that was taken
-    static void scriptNeo4jNtimes(String operation, int N){
+    static long scriptNeo4jNtimes(String operation, int N){
+        Timer genericTimer2 = new Timer();
         System.out.println(" ");
         System.out.println("Running " + operation + " script on the Neo4j for " + N + " operations");
         System.out.println("===========================");
+        genericTimer2.startTimer();
         for(int x= 0; x<N; x++){
             System.out.println("Running " + operation + " operation #" + x + " on Neo4j");
         }
+        genericTimer2.stopTimer();
+        return  genericTimer2.getTime();
     }
     //=============================== End of Neo4j Scripts ========================================
 

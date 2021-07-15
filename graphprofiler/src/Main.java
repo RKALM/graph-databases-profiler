@@ -7,13 +7,9 @@ public class Main {
     public static Scanner in = new Scanner(System.in);
 
     //========== Stuff for the timers ========================
-    private static Timer genericTimer = new Timer();
-    private static Timer timer10N = new Timer();
-    private static Timer timer100N = new Timer();
-    private static Timer timer1000N = new Timer();
-    private static Timer timer10000N = new Timer();
-    private static Timer timer100000N = new Timer();
-    private static Timer timer1000000N = new Timer();
+    //private static Timer genericTimer = new Timer(); //legacy code
+    //private static Timer timer10N = new Timer(); //legacy code
+
     public static long[] times10n;
     public static long[] times100n;
     public static long[] times1000n;
@@ -29,6 +25,7 @@ public class Main {
         displayer();
     }
 
+    //the user makes his choices
     public static void menu() {
         System.out.println("How many repetitions, (for accuracy) you wish to do?");
         repetititons = Integer.parseInt(in.nextLine());
@@ -78,6 +75,7 @@ public class Main {
 
     } //end of menu
 
+    //the scripts run
     static void run() {
         for (int x = 0; x < repetititons; x++) {
             if (graphDatabse.equalsIgnoreCase("graphdb")) {
@@ -110,16 +108,24 @@ public class Main {
 
     //displayer is used to display the results of the profiling to the console
     static void displayer(){
+        long sum10n = 0;
+        long sum100n = 0;
+        long sum1000n = 0;
+        long sum10000n = 0;
+        long sum100000n = 0;
+
         //final test display of the arrays.
         System.out.println("Displaying the times10n array of " + graphDatabse + ": ");
         for (long x : times10n) {
             if (x >= 0) {
+                sum10n = sum10n + x;
                 System.out.println(x);
             }
         }
         System.out.println("Displaying the times100n arrayof " + graphDatabse + ": ");
         for (long x : times100n) {
             if (x >= 0) {
+                sum100n = sum100n + x;
                 System.out.println(x);
             }
         }
@@ -127,6 +133,7 @@ public class Main {
         System.out.println("Displaying the times1000n arrayof " + graphDatabse + ": ");
         for (long x : times1000n) {
             if (x >= 0) {
+                sum1000n = sum1000n + x;
                 System.out.println(x);
             }
         }
@@ -134,6 +141,7 @@ public class Main {
         System.out.println("Displaying the times10000n arrayof " + graphDatabse + ": ");
         for (long x : times10000n) {
             if (x >= 0) {
+                sum10000n = sum10000n + x;
                 System.out.println(x);
             }
         }
@@ -141,9 +149,27 @@ public class Main {
         System.out.println("Displaying the times100000n arrayof " + graphDatabse + ": ");
         for (long x : times100000n) {
             if (x >= 0) {
+                sum100000n = sum100000n + x;
                 System.out.println(x);
             }
         }
+
+        //finding the average times
+        long avg10n = sum10n / repetititons;
+        long avg100n = sum100n / repetititons;
+        long avg1000n = sum1000n / repetititons;
+        long avg10000n = sum10000n / repetititons;
+        long avg100000n = sum100000n / repetititons;
+
+        //Displaying the average times
+        System.out.println("");
+        System.out.println("Database:" + graphDatabse + " Repetitions:" + repetititons + "Operations:" + crud);
+        System.out.println("===========================================================");
+        System.out.println("The average time of 10 " + crud + " operations is: " + avg10n + " nanoseconds");
+        System.out.println("The average time of 100 " + crud + " operations is: " + avg100n + " nanoseconds");
+        System.out.println("The average time of 1000 " + crud + " operations is: " + avg1000n + " nanoseconds");
+        System.out.println("The average time of 10000 " + crud + " operations is: " + avg10000n + " nanoseconds");
+        System.out.println("The average time of 100000 " + crud + " operations is: " + avg100000n + " nanoseconds");
     }
 
 

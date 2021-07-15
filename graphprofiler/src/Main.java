@@ -26,6 +26,7 @@ public class Main {
         System.out.println("===================");
         menu();
         run();
+        displayer();
     }
 
     public static void menu() {
@@ -107,6 +108,44 @@ public class Main {
         }
     } //end of run
 
+    //displayer is used to display the results of the profiling to the console
+    static void displayer(){
+        //final test display of the arrays.
+        System.out.println("Displaying the times10n array of " + graphDatabse + ": ");
+        for (long x : times10n) {
+            if (x >= 0) {
+                System.out.println(x);
+            }
+        }
+        System.out.println("Displaying the times100n arrayof " + graphDatabse + ": ");
+        for (long x : times100n) {
+            if (x >= 0) {
+                System.out.println(x);
+            }
+        }
+
+        System.out.println("Displaying the times1000n arrayof " + graphDatabse + ": ");
+        for (long x : times1000n) {
+            if (x >= 0) {
+                System.out.println(x);
+            }
+        }
+
+        System.out.println("Displaying the times10000n arrayof " + graphDatabse + ": ");
+        for (long x : times10000n) {
+            if (x >= 0) {
+                System.out.println(x);
+            }
+        }
+
+        System.out.println("Displaying the times100000n arrayof " + graphDatabse + ": ");
+        for (long x : times100000n) {
+            if (x >= 0) {
+                System.out.println(x);
+            }
+        }
+    }
+
 
     //=============================== Neo4j Scripts ========================================
     //running a specific CRUD script on Neo4j for several intervals. it should store the statistics for each one.
@@ -176,41 +215,6 @@ public class Main {
         System.out.println("Recorded time for Neo4j 100000N is " + times100000n[Xint]);
         System.out.println("=================================================");
         System.out.println("");
-
-        //final test display of the arrays.
-        System.out.println("Displaying the times10n array: ");
-        for (long x : times10n) {
-            if (x >= 0) {
-                System.out.println(x);
-            }
-        }
-        System.out.println("Displaying the times100n array: ");
-        for (long x : times100n) {
-            if (x >= 0) {
-                System.out.println(x);
-            }
-        }
-
-        System.out.println("Displaying the times1000n array: ");
-        for (long x : times1000n) {
-            if (x >= 0) {
-                System.out.println(x);
-            }
-        }
-
-        System.out.println("Displaying the times10000n array: ");
-        for (long x : times10000n) {
-            if (x >= 0) {
-                System.out.println(x);
-            }
-        }
-
-        System.out.println("Displaying the times100000n array: ");
-        for (long x : times100000n) {
-            if (x >= 0) {
-                System.out.println(x);
-            }
-        }
 
     }
 
@@ -295,41 +299,6 @@ public class Main {
         System.out.println("=================================================");
         System.out.println("");
 
-        //final test display of the arrays.
-        System.out.println("Displaying the times10n array: ");
-        for (long x : times10n) {
-            if (x >= 0) {
-                System.out.println(x);
-            }
-        }
-        System.out.println("Displaying the times100n array: ");
-        for (long x : times100n) {
-            if (x >= 0) {
-                System.out.println(x);
-            }
-        }
-
-        System.out.println("Displaying the times1000n array: ");
-        for (long x : times1000n) {
-            if (x >= 0) {
-                System.out.println(x);
-            }
-        }
-
-        System.out.println("Displaying the times10000n array: ");
-        for (long x : times10000n) {
-            if (x >= 0) {
-                System.out.println(x);
-            }
-        }
-
-        System.out.println("Displaying the times100000n array: ");
-        for (long x : times100000n) {
-            if (x >= 0) {
-                System.out.println(x);
-            }
-        }
-
     }
 
     //running a specific CRUD operation on GraphDB for N times. it should return the time that was taken
@@ -411,41 +380,6 @@ public class Main {
         System.out.println("Recorded time for OrientDB 100000N is " + times100000n[Xint]);
         System.out.println("=================================================");
         System.out.println("");
-
-        //final test display of the arrays.
-        System.out.println("Displaying the times10n array: ");
-        for (long x : times10n) {
-            if (x >= 0) {
-                System.out.println(x);
-            }
-        }
-        System.out.println("Displaying the times100n array: ");
-        for (long x : times100n) {
-            if (x >= 0) {
-                System.out.println(x);
-            }
-        }
-
-        System.out.println("Displaying the times1000n array: ");
-        for (long x : times1000n) {
-            if (x >= 0) {
-                System.out.println(x);
-            }
-        }
-
-        System.out.println("Displaying the times10000n array: ");
-        for (long x : times10000n) {
-            if (x >= 0) {
-                System.out.println(x);
-            }
-        }
-
-        System.out.println("Displaying the times100000n array: ");
-        for (long x : times100000n) {
-            if (x >= 0) {
-                System.out.println(x);
-            }
-        }
 
     }
 

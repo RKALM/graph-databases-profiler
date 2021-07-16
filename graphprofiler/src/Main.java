@@ -1,3 +1,5 @@
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.Scanner;
 
 public class Main {
@@ -5,6 +7,7 @@ public class Main {
     static String crud = "create"; //create, delete or update
     static String graphDatabse = "neo4j"; //neo4j, graphdb pr orientdb
     public static Scanner in = new Scanner(System.in);
+    private static final NumberFormat formatter = new DecimalFormat("#0.000000000");
 
     //========== Stuff for the timers ========================
     //private static Timer genericTimer = new Timer(); //legacy code
@@ -161,7 +164,14 @@ public class Main {
         long avg10000n = sum10000n / repetititons;
         long avg100000n = sum100000n / repetititons;
 
-        //Displaying the average times
+        //turning the averages into seconds
+        String avg10nsec = formatter.format(avg10n / 1000000000d);
+        String avg100nsec = formatter.format(avg100n / 1000000000d);
+        String avg1000nsec = formatter.format(avg1000n / 1000000000d);
+        String avg10000nsec = formatter.format(avg10000n / 1000000000d);
+        String avg100000nsec = formatter.format(avg100000n / 1000000000d);
+
+        //Displaying the average times in nanoseconds
         System.out.println("");
         System.out.println("Database:" + graphDatabse + " Repetitions:" + repetititons + " Operations:" + crud);
         System.out.println("===========================================================");
@@ -170,6 +180,16 @@ public class Main {
         System.out.println("The average time of 1000 " + crud + " operations is: " + avg1000n + " nanoseconds");
         System.out.println("The average time of 10000 " + crud + " operations is: " + avg10000n + " nanoseconds");
         System.out.println("The average time of 100000 " + crud + " operations is: " + avg100000n + " nanoseconds");
+
+        //Displaying the average times in nanoseconds
+        System.out.println("");
+        System.out.println("Database:" + graphDatabse + " Repetitions:" + repetititons + " Operations:" + crud);
+        System.out.println("===========================================================");
+        System.out.println("The average time of 10 " + crud + " operations is: " + avg10nsec + " seconds");
+        System.out.println("The average time of 100 " + crud + " operations is: " + avg100nsec + " seconds");
+        System.out.println("The average time of 1000 " + crud + " operations is: " + avg1000nsec + " seconds");
+        System.out.println("The average time of 10000 " + crud + " operations is: " + avg10000nsec + " seconds");
+        System.out.println("The average time of 100000 " + crud + " operations is: " + avg100000nsec + " seconds");
     }
 
 

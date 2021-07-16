@@ -163,7 +163,7 @@ public class Main {
 
         //Displaying the average times
         System.out.println("");
-        System.out.println("Database:" + graphDatabse + " Repetitions:" + repetititons + "Operations:" + crud);
+        System.out.println("Database:" + graphDatabse + " Repetitions:" + repetititons + " Operations:" + crud);
         System.out.println("===========================================================");
         System.out.println("The average time of 10 " + crud + " operations is: " + avg10n + " nanoseconds");
         System.out.println("The average time of 100 " + crud + " operations is: " + avg100n + " nanoseconds");
@@ -251,9 +251,22 @@ public class Main {
         System.out.println("Running " + operation + " script on the Neo4j for " + N + " operations");
         System.out.println("===========================");
         genericTimer2.startTimer();
-        for (int x = 0; x < N; x++) {
-            System.out.println("Running " + operation + " operation #" + x + " on Neo4j");
+        if(operation.equalsIgnoreCase("create")){
+            for (int x = 0; x < N; x++) {
+                Neo4jcrud.create();
+            }
+        } else if(operation.equalsIgnoreCase("update")){
+            for (int x = 0; x < N; x++) {
+                Neo4jcrud.update();
+            }
+        } else {
+            for (int x = 0; x < N; x++) {
+                Neo4jcrud.delete();
+            }
         }
+//        for (int x = 0; x < N; x++) {
+//            System.out.println("Running " + operation + " operation #" + x + " on Neo4j");
+//        }
         genericTimer2.stopTimer();
         return genericTimer2.getTime();
     }
@@ -334,9 +347,22 @@ public class Main {
         System.out.println("Running " + operation + " script on the GraphDB for " + N + " operations");
         System.out.println("===========================");
         genericTimer2.startTimer();
-        for (int x = 0; x < N; x++) {
-            System.out.println("Running " + operation + " operation #" + x + " on GraphDB");
+        if(operation.equalsIgnoreCase("create")){
+            for (int x = 0; x < N; x++) {
+                Graphdbcrud.create();
+            }
+        } else if(operation.equalsIgnoreCase("update")){
+            for (int x = 0; x < N; x++) {
+                Graphdbcrud.update();
+            }
+        } else {
+            for (int x = 0; x < N; x++) {
+                Graphdbcrud.delete();
+            }
         }
+//        for (int x = 0; x < N; x++) {
+//            System.out.println("Running " + operation + " operation #" + x + " on GraphDB");
+//        }
         genericTimer2.stopTimer();
         return genericTimer2.getTime();
     }
@@ -416,9 +442,22 @@ public class Main {
         System.out.println("Running " + operation + " script on the OrientDB for " + N + " operations");
         System.out.println("===========================");
         genericTimer2.startTimer();
-        for (int x = 0; x < N; x++) {
-            System.out.println("Running " + operation + " operation #" + x + " on OrientDB");
+        if(operation.equalsIgnoreCase("create")){
+            for (int x = 0; x < N; x++) {
+                Orientdbcrud.create();
+            }
+        } else if(operation.equalsIgnoreCase("update")){
+            for (int x = 0; x < N; x++) {
+                Orientdbcrud.update();
+            }
+        } else {
+            for (int x = 0; x < N; x++) {
+                Orientdbcrud.delete();
+            }
         }
+//        for (int x = 0; x < N; x++) {
+//            System.out.println("Running " + operation + " operation #" + x + " on OrientDB");
+//        }
         genericTimer2.stopTimer();
         return genericTimer2.getTime();
     }

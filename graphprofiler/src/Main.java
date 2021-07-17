@@ -116,6 +116,7 @@ public class Main {
         long sum1000n = 0;
         long sum10000n = 0;
         long sum100000n = 0;
+        long sum1000000n = 0;
 
         //final test display of the arrays.
         System.out.println("Displaying the times10n array of " + graphDatabse + ": ");
@@ -157,12 +158,21 @@ public class Main {
             }
         }
 
+        System.out.println("Displaying the times1000000n arrayof " + graphDatabse + ": ");
+        for (long x : times1000000n) {
+            if (x >= 0) {
+                sum1000000n = sum1000000n + x;
+                System.out.println(x);
+            }
+        }
+
         //finding the average times
         long avg10n = sum10n / repetititons;
         long avg100n = sum100n / repetititons;
         long avg1000n = sum1000n / repetititons;
         long avg10000n = sum10000n / repetititons;
         long avg100000n = sum100000n / repetititons;
+        long avg1000000n = sum1000000n / repetititons;
 
         //turning the averages into seconds
         String avg10nsec = formatter.format(avg10n / 1000000000d);
@@ -170,6 +180,7 @@ public class Main {
         String avg1000nsec = formatter.format(avg1000n / 1000000000d);
         String avg10000nsec = formatter.format(avg10000n / 1000000000d);
         String avg100000nsec = formatter.format(avg100000n / 1000000000d);
+        String avg1000000nsec = formatter.format(avg1000000n / 1000000000d);
 
         //Displaying the average times in nanoseconds
         System.out.println("");
@@ -180,6 +191,7 @@ public class Main {
         System.out.println("The average time of 1000 " + crud + " operations is: " + avg1000n + " nanoseconds");
         System.out.println("The average time of 10000 " + crud + " operations is: " + avg10000n + " nanoseconds");
         System.out.println("The average time of 100000 " + crud + " operations is: " + avg100000n + " nanoseconds");
+        System.out.println("The average time of 1000000 " + crud + " operations is: " + avg1000000n + " nanoseconds");
 
         //Displaying the average times in nanoseconds
         System.out.println("");
@@ -190,6 +202,7 @@ public class Main {
         System.out.println("The average time of 1000 " + crud + " operations is: " + avg1000nsec + " seconds");
         System.out.println("The average time of 10000 " + crud + " operations is: " + avg10000nsec + " seconds");
         System.out.println("The average time of 100000 " + crud + " operations is: " + avg100000nsec + " seconds");
+        System.out.println("The average time of 1000000 " + crud + " operations is: " + avg1000000nsec + " seconds");
     }
 
 
@@ -259,6 +272,18 @@ public class Main {
         }
         System.out.println("=================================================");
         System.out.println("Recorded time for Neo4j 100000N is " + times100000n[Xint]);
+        System.out.println("=================================================");
+        System.out.println("");
+
+        //1000000N
+        long time1000000n = scriptNeo4jNtimes(operation, 1000000);
+        if (time1000000n < 0) {
+            times1000000n[Xint] = 0;
+        } else {
+            times1000000n[Xint] = time1000000n;
+        }
+        System.out.println("=================================================");
+        System.out.println("Recorded time for Neo4j 1000000N is " + times1000000n[Xint]);
         System.out.println("=================================================");
         System.out.println("");
 
@@ -358,6 +383,18 @@ public class Main {
         System.out.println("=================================================");
         System.out.println("");
 
+        //1000000N
+        long time1000000n = scriptGraphDBNtimes(operation, 1000000);
+        if (time1000000n < 0) {
+            times1000000n[Xint] = 0;
+        } else {
+            times1000000n[Xint] = time1000000n;
+        }
+        System.out.println("=================================================");
+        System.out.println("Recorded time for GraphDB 1000000N is " + times1000000n[Xint]);
+        System.out.println("=================================================");
+        System.out.println("");
+
     }
 
     //running a specific CRUD operation on GraphDB for N times. it should return the time that was taken
@@ -450,6 +487,18 @@ public class Main {
         }
         System.out.println("=================================================");
         System.out.println("Recorded time for OrientDB 100000N is " + times100000n[Xint]);
+        System.out.println("=================================================");
+        System.out.println("");
+
+        //1000000N
+        long time1000000n = scriptOrientDBNtimes(operation, 1000000);
+        if (time1000000n < 0) {
+            times1000000n[Xint] = 0;
+        } else {
+            times1000000n[Xint] = time1000000n;
+        }
+        System.out.println("=================================================");
+        System.out.println("Recorded time for OrientDB 1000000N is " + times1000000n[Xint]);
         System.out.println("=================================================");
         System.out.println("");
 

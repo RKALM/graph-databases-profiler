@@ -158,13 +158,15 @@ public class Main {
             }
         }
 
-        System.out.println("Displaying the times1000000n arrayof " + graphDatabse + ": ");
-        for (long x : times1000000n) {
-            if (x >= 0) {
-                sum1000000n = sum1000000n + x;
-                System.out.println(x);
+        if (Dataholder.million_allowed){
+            System.out.println("Displaying the times1000000n arrayof " + graphDatabse + ": ");
+            for (long x : times1000000n) {
+                if (x >= 0) {
+                    sum1000000n = sum1000000n + x;
+                    System.out.println(x);
+                }
             }
-        }
+        } //if (Dataholder.million_allowed) ends here
 
         //finding the average times
         long avg10n = sum10n / repetititons;
@@ -191,7 +193,9 @@ public class Main {
         System.out.println("The average time of 1000 " + crud + " operations is: " + avg1000n + " nanoseconds");
         System.out.println("The average time of 10000 " + crud + " operations is: " + avg10000n + " nanoseconds");
         System.out.println("The average time of 100000 " + crud + " operations is: " + avg100000n + " nanoseconds");
-        System.out.println("The average time of 1000000 " + crud + " operations is: " + avg1000000n + " nanoseconds");
+        if (Dataholder.million_allowed){
+            System.out.println("The average time of 1000000 " + crud + " operations is: " + avg1000000n + " nanoseconds");
+        } //if (Dataholder.million_allowed) ends here
 
         //Displaying the average times in nanoseconds
         System.out.println("");
@@ -202,7 +206,9 @@ public class Main {
         System.out.println("The average time of 1000 " + crud + " operations is: " + avg1000nsec + " seconds");
         System.out.println("The average time of 10000 " + crud + " operations is: " + avg10000nsec + " seconds");
         System.out.println("The average time of 100000 " + crud + " operations is: " + avg100000nsec + " seconds");
-        System.out.println("The average time of 1000000 " + crud + " operations is: " + avg1000000nsec + " seconds");
+        if (Dataholder.million_allowed){
+            System.out.println("The average time of 1000000 " + crud + " operations is: " + avg1000000nsec + " seconds");
+        } //if (Dataholder.million_allowed) ends here
     }
 
 
@@ -276,16 +282,18 @@ public class Main {
         System.out.println("");
 
         //1000000N
-        long time1000000n = scriptNeo4jNtimes(operation, 1000000);
-        if (time1000000n < 0) {
-            times1000000n[Xint] = 0;
-        } else {
-            times1000000n[Xint] = time1000000n;
-        }
-        System.out.println("=================================================");
-        System.out.println("Recorded time for Neo4j 1000000N is " + times1000000n[Xint]);
-        System.out.println("=================================================");
-        System.out.println("");
+        if (Dataholder.million_allowed){
+            long time1000000n = scriptNeo4jNtimes(operation, 1000000);
+            if (time1000000n < 0) {
+                times1000000n[Xint] = 0;
+            } else {
+                times1000000n[Xint] = time1000000n;
+            }
+            System.out.println("=================================================");
+            System.out.println("Recorded time for Neo4j 1000000N is " + times1000000n[Xint]);
+            System.out.println("=================================================");
+            System.out.println("");
+        } //if (Dataholder.million_allowed) ends here
 
     }
 
@@ -384,16 +392,18 @@ public class Main {
         System.out.println("");
 
         //1000000N
-        long time1000000n = scriptGraphDBNtimes(operation, 1000000);
-        if (time1000000n < 0) {
-            times1000000n[Xint] = 0;
-        } else {
-            times1000000n[Xint] = time1000000n;
-        }
-        System.out.println("=================================================");
-        System.out.println("Recorded time for GraphDB 1000000N is " + times1000000n[Xint]);
-        System.out.println("=================================================");
-        System.out.println("");
+        if (Dataholder.million_allowed){
+            long time1000000n = scriptGraphDBNtimes(operation, 1000000);
+            if (time1000000n < 0) {
+                times1000000n[Xint] = 0;
+            } else {
+                times1000000n[Xint] = time1000000n;
+            }
+            System.out.println("=================================================");
+            System.out.println("Recorded time for GraphDB 1000000N is " + times1000000n[Xint]);
+            System.out.println("=================================================");
+            System.out.println("");
+        } //if (Dataholder.million_allowed) ends here
 
     }
 
@@ -491,16 +501,18 @@ public class Main {
         System.out.println("");
 
         //1000000N
-        long time1000000n = scriptOrientDBNtimes(operation, 1000000);
-        if (time1000000n < 0) {
-            times1000000n[Xint] = 0;
-        } else {
-            times1000000n[Xint] = time1000000n;
-        }
-        System.out.println("=================================================");
-        System.out.println("Recorded time for OrientDB 1000000N is " + times1000000n[Xint]);
-        System.out.println("=================================================");
-        System.out.println("");
+        if (Dataholder.million_allowed){
+            long time1000000n = scriptOrientDBNtimes(operation, 1000000);
+            if (time1000000n < 0) {
+                times1000000n[Xint] = 0;
+            } else {
+                times1000000n[Xint] = time1000000n;
+            }
+            System.out.println("=================================================");
+            System.out.println("Recorded time for OrientDB 1000000N is " + times1000000n[Xint]);
+            System.out.println("=================================================");
+            System.out.println("");
+        } //if (Dataholder.million_allowed) ends here
 
     }
 

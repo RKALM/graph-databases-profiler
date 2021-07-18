@@ -126,47 +126,55 @@ public class Main {
                 System.out.println(x);
             }
         }
-        System.out.println("Displaying the times100n arrayof " + graphDatabse + ": ");
-        for (long x : times100n) {
-            if (x >= 0) {
-                sum100n = sum100n + x;
-                System.out.println(x);
-            }
-        }
-
-        System.out.println("Displaying the times1000n arrayof " + graphDatabse + ": ");
-        for (long x : times1000n) {
-            if (x >= 0) {
-                sum1000n = sum1000n + x;
-                System.out.println(x);
-            }
-        }
-
-        System.out.println("Displaying the times10000n arrayof " + graphDatabse + ": ");
-        for (long x : times10000n) {
-            if (x >= 0) {
-                sum10000n = sum10000n + x;
-                System.out.println(x);
-            }
-        }
-
-        System.out.println("Displaying the times100000n arrayof " + graphDatabse + ": ");
-        for (long x : times100000n) {
-            if (x >= 0) {
-                sum100000n = sum100000n + x;
-                System.out.println(x);
-            }
-        }
-
-        if (Dataholder.million_allowed){
-            System.out.println("Displaying the times1000000n arrayof " + graphDatabse + ": ");
-            for (long x : times1000000n) {
+        if(Dataholder.N100_allowed){
+            System.out.println("Displaying the times100n arrayof " + graphDatabse + ": ");
+            for (long x : times100n) {
                 if (x >= 0) {
-                    sum1000000n = sum1000000n + x;
+                    sum100n = sum100n + x;
                     System.out.println(x);
                 }
             }
-        } //if (Dataholder.million_allowed) ends here
+
+            if(Dataholder.N1000_allowed){
+                System.out.println("Displaying the times1000n arrayof " + graphDatabse + ": ");
+                for (long x : times1000n) {
+                    if (x >= 0) {
+                        sum1000n = sum1000n + x;
+                        System.out.println(x);
+                    }
+                }
+
+                if(Dataholder.N10k_allowed){
+                    System.out.println("Displaying the times10000n arrayof " + graphDatabse + ": ");
+                    for (long x : times10000n) {
+                        if (x >= 0) {
+                            sum10000n = sum10000n + x;
+                            System.out.println(x);
+                        }
+                    }
+
+                    if(Dataholder.N100k_allowed){
+                        System.out.println("Displaying the times100000n arrayof " + graphDatabse + ": ");
+                        for (long x : times100000n) {
+                            if (x >= 0) {
+                                sum100000n = sum100000n + x;
+                                System.out.println(x);
+                            }
+                        }
+
+                        if (Dataholder.million_allowed){
+                            System.out.println("Displaying the times1000000n arrayof " + graphDatabse + ": ");
+                            for (long x : times1000000n) {
+                                if (x >= 0) {
+                                    sum1000000n = sum1000000n + x;
+                                    System.out.println(x);
+                                }
+                            }
+                        } //if (Dataholder.million_allowed) ends here
+                    } //if Dataholder.N100k_allowed ends here
+                } //if Dataholder.N10k_allowed ends here
+            } //if Dataholder.N1000_allowed ends here
+        } //if Dataholder.N100_allowed ends here
 
         //finding the average times
         long avg10n = sum10n / repetititons;
@@ -189,27 +197,43 @@ public class Main {
         System.out.println("Database:" + graphDatabse + " Repetitions:" + repetititons + " Operations:" + crud);
         System.out.println("===========================================================");
         System.out.println("The average time of 10 " + crud + " operations is: " + avg10n + " nanoseconds");
-        System.out.println("The average time of 100 " + crud + " operations is: " + avg100n + " nanoseconds");
-        System.out.println("The average time of 1000 " + crud + " operations is: " + avg1000n + " nanoseconds");
-        System.out.println("The average time of 10000 " + crud + " operations is: " + avg10000n + " nanoseconds");
-        System.out.println("The average time of 100000 " + crud + " operations is: " + avg100000n + " nanoseconds");
-        if (Dataholder.million_allowed){
-            System.out.println("The average time of 1000000 " + crud + " operations is: " + avg1000000n + " nanoseconds");
-        } //if (Dataholder.million_allowed) ends here
+        if(Dataholder.N100_allowed){
+            System.out.println("The average time of 100 " + crud + " operations is: " + avg100n + " nanoseconds");
+            if(Dataholder.N100k_allowed){
+                System.out.println("The average time of 1000 " + crud + " operations is: " + avg1000n + " nanoseconds");
+                if(Dataholder.N10k_allowed){
+                    System.out.println("The average time of 10000 " + crud + " operations is: " + avg10000n + " nanoseconds");
+                    if(Dataholder.N100k_allowed){
+                        System.out.println("The average time of 100000 " + crud + " operations is: " + avg100000n + " nanoseconds");
+                        if (Dataholder.million_allowed){
+                            System.out.println("The average time of 1000000 " + crud + " operations is: " + avg1000000n + " nanoseconds");
+                        } //if (Dataholder.million_allowed) ends here
+                    } //if Dataholder.N100k_allowed ends here
+                } //if Dataholder.N10k_allowed ends here
+            } //if Dataholder.N1000_allowed ends here
+        } //if Dataholder.N100_allowed ends here
 
         //Displaying the average times in nanoseconds
         System.out.println("");
         System.out.println("Database:" + graphDatabse + " Repetitions:" + repetititons + " Operations:" + crud);
         System.out.println("===========================================================");
         System.out.println("The average time of 10 " + crud + " operations is: " + avg10nsec + " seconds");
-        System.out.println("The average time of 100 " + crud + " operations is: " + avg100nsec + " seconds");
-        System.out.println("The average time of 1000 " + crud + " operations is: " + avg1000nsec + " seconds");
-        System.out.println("The average time of 10000 " + crud + " operations is: " + avg10000nsec + " seconds");
-        System.out.println("The average time of 100000 " + crud + " operations is: " + avg100000nsec + " seconds");
-        if (Dataholder.million_allowed){
-            System.out.println("The average time of 1000000 " + crud + " operations is: " + avg1000000nsec + " seconds");
-        } //if (Dataholder.million_allowed) ends here
-    }
+        if(Dataholder.N100_allowed){
+            System.out.println("The average time of 100 " + crud + " operations is: " + avg100nsec + " seconds");
+            if(Dataholder.N1000_allowed){
+                System.out.println("The average time of 1000 " + crud + " operations is: " + avg1000nsec + " seconds");
+                if(Dataholder.N10k_allowed){
+                    System.out.println("The average time of 10000 " + crud + " operations is: " + avg10000nsec + " seconds");
+                    if(Dataholder.N100k_allowed){
+                        System.out.println("The average time of 100000 " + crud + " operations is: " + avg100000nsec + " seconds");
+                        if (Dataholder.million_allowed){
+                            System.out.println("The average time of 1000000 " + crud + " operations is: " + avg1000000nsec + " seconds");
+                        } //if (Dataholder.million_allowed) ends here
+                    } //if Dataholder.N100k_allowed ends here
+                } //if Dataholder.N10k_allowed ends here
+            } //if Dataholder.N1000_allowed ends here
+        } //if Dataholder.N100_allowed ends here
+    } //The displayer() ends here
 
 
     //=============================== Neo4j Scripts ========================================
@@ -233,69 +257,77 @@ public class Main {
         System.out.println("=================================================");
         System.out.println("");
 
-        //100N
-        long time100n = scriptNeo4jNtimes(operation, 100);
-        if (time100n < 0) {
-            times100n[Xint] = 0;
-        } else {
-            times100n[Xint] = time100n;
-        }
-        System.out.println("=================================================");
-        System.out.println("Recorded time for Neo4j 100N is " + times100n[Xint]);
-        System.out.println("=================================================");
-        System.out.println("");
-
-        //1000N
-        long time1000n = scriptNeo4jNtimes(operation, 1000);
-        if (time1000n < 0) {
-            times1000n[Xint] = 0;
-        } else {
-            times1000n[Xint] = time1000n;
-        }
-        System.out.println("=================================================");
-        System.out.println("Recorded time for Neo4j 1000N is " + times1000n[Xint]);
-        System.out.println("=================================================");
-        System.out.println("");
-
-        //10000N
-        long time10000n = scriptNeo4jNtimes(operation, 10000);
-        if (time10000n < 0) {
-            times10000n[Xint] = 0;
-        } else {
-            times10000n[Xint] = time10000n;
-        }
-        System.out.println("=================================================");
-        System.out.println("Recorded time for Neo4j 10000N is " + times10000n[Xint]);
-        System.out.println("=================================================");
-        System.out.println("");
-
-        //100000N
-        long time100000n = scriptNeo4jNtimes(operation, 100000);
-        if (time100000n < 0) {
-            times100000n[Xint] = 0;
-        } else {
-            times100000n[Xint] = time100000n;
-        }
-        System.out.println("=================================================");
-        System.out.println("Recorded time for Neo4j 100000N is " + times100000n[Xint]);
-        System.out.println("=================================================");
-        System.out.println("");
-
-        //1000000N
-        if (Dataholder.million_allowed){
-            long time1000000n = scriptNeo4jNtimes(operation, 1000000);
-            if (time1000000n < 0) {
-                times1000000n[Xint] = 0;
+        if(Dataholder.N100_allowed){
+            //100N
+            long time100n = scriptNeo4jNtimes(operation, 100);
+            if (time100n < 0) {
+                times100n[Xint] = 0;
             } else {
-                times1000000n[Xint] = time1000000n;
+                times100n[Xint] = time100n;
             }
             System.out.println("=================================================");
-            System.out.println("Recorded time for Neo4j 1000000N is " + times1000000n[Xint]);
+            System.out.println("Recorded time for Neo4j 100N is " + times100n[Xint]);
             System.out.println("=================================================");
             System.out.println("");
-        } //if (Dataholder.million_allowed) ends here
 
-    }
+            if(Dataholder.N1000_allowed){
+                //1000N
+                long time1000n = scriptNeo4jNtimes(operation, 1000);
+                if (time1000n < 0) {
+                    times1000n[Xint] = 0;
+                } else {
+                    times1000n[Xint] = time1000n;
+                }
+                System.out.println("=================================================");
+                System.out.println("Recorded time for Neo4j 1000N is " + times1000n[Xint]);
+                System.out.println("=================================================");
+                System.out.println("");
+
+                if(Dataholder.N10k_allowed){
+                    //10000N
+                    long time10000n = scriptNeo4jNtimes(operation, 10000);
+                    if (time10000n < 0) {
+                        times10000n[Xint] = 0;
+                    } else {
+                        times10000n[Xint] = time10000n;
+                    }
+                    System.out.println("=================================================");
+                    System.out.println("Recorded time for Neo4j 10000N is " + times10000n[Xint]);
+                    System.out.println("=================================================");
+                    System.out.println("");
+
+                    if(Dataholder.N100k_allowed){
+                        //100000N
+                        long time100000n = scriptNeo4jNtimes(operation, 100000);
+                        if (time100000n < 0) {
+                            times100000n[Xint] = 0;
+                        } else {
+                            times100000n[Xint] = time100000n;
+                        }
+                        System.out.println("=================================================");
+                        System.out.println("Recorded time for Neo4j 100000N is " + times100000n[Xint]);
+                        System.out.println("=================================================");
+                        System.out.println("");
+
+                        //1000000N
+                        if (Dataholder.million_allowed){
+                            long time1000000n = scriptNeo4jNtimes(operation, 1000000);
+                            if (time1000000n < 0) {
+                                times1000000n[Xint] = 0;
+                            } else {
+                                times1000000n[Xint] = time1000000n;
+                            }
+                            System.out.println("=================================================");
+                            System.out.println("Recorded time for Neo4j 1000000N is " + times1000000n[Xint]);
+                            System.out.println("=================================================");
+                            System.out.println("");
+                        } //if (Dataholder.million_allowed) ends here
+                    } //if Dataholder.N100k_allowed ends here
+                } //if Dataholder.N10k_allowed ends here
+            } //if Dataholder.N1000_allowed ends here
+        } //if Dataholder.N100_allowed ends here
+
+    } //The ScriptNeo4j ends here
 
     //running a specific CRUD operation on Neo4j for N times. it should return the time that was taken
     static long scriptNeo4jNtimes(String operation, int N) {
@@ -343,69 +375,77 @@ public class Main {
         System.out.println("=================================================");
         System.out.println("");
 
-        //100N
-        long time100n = scriptGraphDBNtimes(operation, 100);
-        if (time100n < 0) {
-            times100n[Xint] = 0;
-        } else {
-            times100n[Xint] = time100n;
-        }
-        System.out.println("=================================================");
-        System.out.println("Recorded time for GraphDB 100N is " + times100n[Xint]);
-        System.out.println("=================================================");
-        System.out.println("");
-
-        //1000N
-        long time1000n = scriptGraphDBNtimes(operation, 1000);
-        if (time1000n < 0) {
-            times1000n[Xint] = 0;
-        } else {
-            times1000n[Xint] = time1000n;
-        }
-        System.out.println("=================================================");
-        System.out.println("Recorded time for GraphDB 1000N is " + times1000n[Xint]);
-        System.out.println("=================================================");
-        System.out.println("");
-
-        //10000N
-        long time10000n = scriptGraphDBNtimes(operation, 10000);
-        if (time10000n < 0) {
-            times10000n[Xint] = 0;
-        } else {
-            times10000n[Xint] = time10000n;
-        }
-        System.out.println("=================================================");
-        System.out.println("Recorded time for GraphDB 10000N is " + times10000n[Xint]);
-        System.out.println("=================================================");
-        System.out.println("");
-
-        //100000N
-        long time100000n = scriptGraphDBNtimes(operation, 100000);
-        if (time100000n < 0) {
-            times100000n[Xint] = 0;
-        } else {
-            times100000n[Xint] = time100000n;
-        }
-        System.out.println("=================================================");
-        System.out.println("Recorded time for GraphDB 100000N is " + times100000n[Xint]);
-        System.out.println("=================================================");
-        System.out.println("");
-
-        //1000000N
-        if (Dataholder.million_allowed){
-            long time1000000n = scriptGraphDBNtimes(operation, 1000000);
-            if (time1000000n < 0) {
-                times1000000n[Xint] = 0;
+        if(Dataholder.N100_allowed){
+            //100N
+            long time100n = scriptGraphDBNtimes(operation, 100);
+            if (time100n < 0) {
+                times100n[Xint] = 0;
             } else {
-                times1000000n[Xint] = time1000000n;
+                times100n[Xint] = time100n;
             }
             System.out.println("=================================================");
-            System.out.println("Recorded time for GraphDB 1000000N is " + times1000000n[Xint]);
+            System.out.println("Recorded time for GraphDB 100N is " + times100n[Xint]);
             System.out.println("=================================================");
             System.out.println("");
-        } //if (Dataholder.million_allowed) ends here
 
-    }
+            if(Dataholder.N1000_allowed){
+                //1000N
+                long time1000n = scriptGraphDBNtimes(operation, 1000);
+                if (time1000n < 0) {
+                    times1000n[Xint] = 0;
+                } else {
+                    times1000n[Xint] = time1000n;
+                }
+                System.out.println("=================================================");
+                System.out.println("Recorded time for GraphDB 1000N is " + times1000n[Xint]);
+                System.out.println("=================================================");
+                System.out.println("");
+
+                if(Dataholder.N10k_allowed){
+                    //10000N
+                    long time10000n = scriptGraphDBNtimes(operation, 10000);
+                    if (time10000n < 0) {
+                        times10000n[Xint] = 0;
+                    } else {
+                        times10000n[Xint] = time10000n;
+                    }
+                    System.out.println("=================================================");
+                    System.out.println("Recorded time for GraphDB 10000N is " + times10000n[Xint]);
+                    System.out.println("=================================================");
+                    System.out.println("");
+
+                    if(Dataholder.N100k_allowed){
+                        //100000N
+                        long time100000n = scriptGraphDBNtimes(operation, 100000);
+                        if (time100000n < 0) {
+                            times100000n[Xint] = 0;
+                        } else {
+                            times100000n[Xint] = time100000n;
+                        }
+                        System.out.println("=================================================");
+                        System.out.println("Recorded time for GraphDB 100000N is " + times100000n[Xint]);
+                        System.out.println("=================================================");
+                        System.out.println("");
+
+                        //1000000N
+                        if (Dataholder.million_allowed){
+                            long time1000000n = scriptGraphDBNtimes(operation, 1000000);
+                            if (time1000000n < 0) {
+                                times1000000n[Xint] = 0;
+                            } else {
+                                times1000000n[Xint] = time1000000n;
+                            }
+                            System.out.println("=================================================");
+                            System.out.println("Recorded time for GraphDB 1000000N is " + times1000000n[Xint]);
+                            System.out.println("=================================================");
+                            System.out.println("");
+                        } //if (Dataholder.million_allowed) ends here
+                    } //if Dataholder.N100k_allowed ends here
+                } //if Dataholder.N10k_allowed ends here
+            } //if Dataholder.N1000_allowed ends here
+        } //if Dataholder.N100_allowed ends here
+
+    } //The scriptGraphDB() ends here
 
     //running a specific CRUD operation on GraphDB for N times. it should return the time that was taken
     static long scriptGraphDBNtimes(String operation, int N) {
@@ -452,69 +492,77 @@ public class Main {
         System.out.println("=================================================");
         System.out.println("");
 
-        //100N
-        long time100n = scriptOrientDBNtimes(operation, 100);
-        if (time100n < 0) {
-            times100n[Xint] = 0;
-        } else {
-            times100n[Xint] = time100n;
-        }
-        System.out.println("=================================================");
-        System.out.println("Recorded time for OrientDB 100N is " + times100n[Xint]);
-        System.out.println("=================================================");
-        System.out.println("");
-
-        //1000N
-        long time1000n = scriptOrientDBNtimes(operation, 1000);
-        if (time1000n < 0) {
-            times1000n[Xint] = 0;
-        } else {
-            times1000n[Xint] = time1000n;
-        }
-        System.out.println("=================================================");
-        System.out.println("Recorded time for OrientDB 1000N is " + times1000n[Xint]);
-        System.out.println("=================================================");
-        System.out.println("");
-
-        //10000N
-        long time10000n = scriptOrientDBNtimes(operation, 10000);
-        if (time10000n < 0) {
-            times10000n[Xint] = 0;
-        } else {
-            times10000n[Xint] = time10000n;
-        }
-        System.out.println("=================================================");
-        System.out.println("Recorded time for OrientDB 10000N is " + times10000n[Xint]);
-        System.out.println("=================================================");
-        System.out.println("");
-
-        //100000N
-        long time100000n = scriptOrientDBNtimes(operation, 100000);
-        if (time100000n < 0) {
-            times100000n[Xint] = 0;
-        } else {
-            times100000n[Xint] = time100000n;
-        }
-        System.out.println("=================================================");
-        System.out.println("Recorded time for OrientDB 100000N is " + times100000n[Xint]);
-        System.out.println("=================================================");
-        System.out.println("");
-
-        //1000000N
-        if (Dataholder.million_allowed){
-            long time1000000n = scriptOrientDBNtimes(operation, 1000000);
-            if (time1000000n < 0) {
-                times1000000n[Xint] = 0;
+        if(Dataholder.N100_allowed){
+            //100N
+            long time100n = scriptOrientDBNtimes(operation, 100);
+            if (time100n < 0) {
+                times100n[Xint] = 0;
             } else {
-                times1000000n[Xint] = time1000000n;
+                times100n[Xint] = time100n;
             }
             System.out.println("=================================================");
-            System.out.println("Recorded time for OrientDB 1000000N is " + times1000000n[Xint]);
+            System.out.println("Recorded time for OrientDB 100N is " + times100n[Xint]);
             System.out.println("=================================================");
             System.out.println("");
-        } //if (Dataholder.million_allowed) ends here
 
-    }
+            if(Dataholder.N1000_allowed){
+                //1000N
+                long time1000n = scriptOrientDBNtimes(operation, 1000);
+                if (time1000n < 0) {
+                    times1000n[Xint] = 0;
+                } else {
+                    times1000n[Xint] = time1000n;
+                }
+                System.out.println("=================================================");
+                System.out.println("Recorded time for OrientDB 1000N is " + times1000n[Xint]);
+                System.out.println("=================================================");
+                System.out.println("");
+
+                if(Dataholder.N10k_allowed){
+                    //10000N
+                    long time10000n = scriptOrientDBNtimes(operation, 10000);
+                    if (time10000n < 0) {
+                        times10000n[Xint] = 0;
+                    } else {
+                        times10000n[Xint] = time10000n;
+                    }
+                    System.out.println("=================================================");
+                    System.out.println("Recorded time for OrientDB 10000N is " + times10000n[Xint]);
+                    System.out.println("=================================================");
+                    System.out.println("");
+
+                    if(Dataholder.N100k_allowed){
+                        //100000N
+                        long time100000n = scriptOrientDBNtimes(operation, 100000);
+                        if (time100000n < 0) {
+                            times100000n[Xint] = 0;
+                        } else {
+                            times100000n[Xint] = time100000n;
+                        }
+                        System.out.println("=================================================");
+                        System.out.println("Recorded time for OrientDB 100000N is " + times100000n[Xint]);
+                        System.out.println("=================================================");
+                        System.out.println("");
+
+                        //1000000N
+                        if (Dataholder.million_allowed){
+                            long time1000000n = scriptOrientDBNtimes(operation, 1000000);
+                            if (time1000000n < 0) {
+                                times1000000n[Xint] = 0;
+                            } else {
+                                times1000000n[Xint] = time1000000n;
+                            }
+                            System.out.println("=================================================");
+                            System.out.println("Recorded time for OrientDB 1000000N is " + times1000000n[Xint]);
+                            System.out.println("=================================================");
+                            System.out.println("");
+                        } //if (Dataholder.million_allowed) ends here
+                    } //if Dataholder.N100k_allowed ends here
+                } //if Dataholder.N10k_allowed ends here
+            } //if Dataholder.N1000_allowed ends here
+        } //if Dataholder.N100_allowed ends here
+
+    } //The ScriptOrientDB() ends here
 
     //running a specific CRUD operation on OrientDB for N times. it should return the time that was taken
     static long scriptOrientDBNtimes(String operation, int N) {

@@ -4,11 +4,17 @@ public class Neo4jcrud {
     static boolean create(){
         //do something
         if(Dataholder.databases_allowed){
-            //run the database
-            Neo4jDB neo4j = new Neo4jDB( "bolt://localhost:7687", "profiler", "profiler" );
-            neo4j.createANodeTest("(DB) Creating a node on Neo4j");
-            //System.out.println("Creating a node on Neo4j");
-            return true;
+            if(Dataholder.neo4j_script_test){
+                //run the database
+                Neo4jDB neo4j = new Neo4jDB( "bolt://localhost:7687", "profiler", "profiler" );
+                neo4j.createANodeTest("(DB) Creating a node on Neo4j");
+                //System.out.println("Creating a node on Neo4j");
+                return true;
+            } else {
+                //print a statement
+                System.out.println("Creating a node on Neo4j");
+                return true;
+            }
         } else {
             //print a statement
             System.out.println("Creating a node on Neo4j");
@@ -23,9 +29,17 @@ public class Neo4jcrud {
     //UPDATE operation on Neo4j. It returns to indicate that is has complete its cycle.
     static boolean update(){
         if(Dataholder.databases_allowed){
-            System.out.println("(DB)Updating a node on Neo4j");
-            return true;
+            if(Dataholder.neo4j_script_test){
+                //run the database
+                System.out.println("(DB)Updating a node on Neo4j");
+                return true;
+            } else {
+                //print a statement
+                System.out.println("Updating a node on Neo4j");
+                return true;
+            }
         } else {
+            //print a statement
             System.out.println("Updating a node on Neo4j");
             return true;
         }
@@ -35,9 +49,15 @@ public class Neo4jcrud {
     //DELETE operation on Neo4j. It returns to indicate that is has complete its cycle.
     static boolean delete(){
         if(Dataholder.databases_allowed){
-            //run the database
-            System.out.println("(DB)Deleting a node on Neo4j");
-            return true;
+            if(Dataholder.neo4j_script_test){
+                //run the database
+                System.out.println("(DB)Deleting a node on Neo4j");
+                return true;
+            } else {
+                //print a statement
+                System.out.println("Deleting a node on Neo4j");
+                return true;
+            }
         } else {
             //print a statement
             System.out.println("Deleting a node on Neo4j");

@@ -11,7 +11,7 @@ public class Dataholder {
 
 
     //Access to databases
-    static boolean databases_allowed = false; //when true allows connection to the databases
+    static boolean databases_allowed = true; //when true allows connection to the databases
     static boolean neo4j_script_test = false; //only for the CRUD part. the scripts will run with print statement
     static boolean graphdb_script_test = false; //only for the CRUD part. the scripts will run with print statement
     static boolean orientdb_script_test = false; //only for the CRUD part. the scripts will run with print statement

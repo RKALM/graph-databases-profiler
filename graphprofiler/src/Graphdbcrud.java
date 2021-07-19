@@ -2,22 +2,41 @@ public class Graphdbcrud {
 
     //CREATE operation on GraphDB. It returns to indicate that is has complete its cycle.
     static boolean create(){
-        //do something
-        System.out.println("Creating a node on GraphDB");
-        return true;
+        if(Dataholder.databases_allowed){
+            //run the database
+            System.out.println("(DB) Creating a node on GraphDB");
+            return true;
+        } else {
+            //print a statement
+            System.out.println("Creating a node on GraphDB");
+            return true;
+        }
+
     }
 
     //UPDATE operation on GraphDB. It returns to indicate that is has complete its cycle.
     static boolean update(){
-        //do something
-        System.out.println("Updating a node on GraphDB");
-        return true;
+        if(Dataholder.databases_allowed){
+            //run the database
+            System.out.println("(DB) Updating a node on GraphDB");
+            return true;
+        } else {
+            //print a statement
+            System.out.println("Updating a node on GraphDB");
+            return true;
+        }
     }
 
     //DELETE operation on GraphDB. It returns to indicate that is has complete its cycle.
     static boolean delete(){
-        //do something
-        System.out.println("Deleting a node on GraphDB");
-        return true;
+        if(Dataholder.databases_allowed){
+            //run the database
+            System.out.println("(DB) Deleting a node on GraphDB");
+            return true;
+        } else {
+            //print a statement
+            System.out.println("Deleting a node on GraphDB");
+            return true;
+        }
     }
 }

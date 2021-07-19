@@ -24,7 +24,7 @@ public class Neo4jDB implements AutoCloseable
     }
 
     //Very early version. Just to check if everything works.
-    public void createANode( final String message )
+    public void createANodeTest( final String message )
     {
         try ( Session session = driver.session() )
         {

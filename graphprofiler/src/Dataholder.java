@@ -7,7 +7,7 @@ public class Dataholder {
     static boolean N100k_allowed = false; //if true the system uses 100k intervals as well
     static boolean N10k_allowed = false; //if true the system uses 10k intervals as well
     static boolean N1000_allowed = false; //if true the system uses 1000 intervals as well
-    static boolean N100_allowed = true; //if true the system uses 100 intervals as well
+    static boolean N100_allowed = false; //if true the system uses 100 intervals as well
 
 
     //Access to databases

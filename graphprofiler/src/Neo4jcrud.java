@@ -53,7 +53,9 @@ public class Neo4jcrud {
         if(Dataholder.databases_allowed){
             if(Dataholder.neo4j_script_test){
                 //run the database
-                System.out.println("(DB)Deleting a node on Neo4j");
+                Neo4jDB neo4j = new Neo4jDB( "bolt://localhost:7687", "profiler", "profiler" );
+                boolean tmp = neo4j.deleteANode("(DB)Deleting a node on Neo4j");
+                //System.out.println("(DB)Deleting a node on Neo4j");
                 return true;
             } else {
                 //print a statement

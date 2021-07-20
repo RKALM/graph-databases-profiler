@@ -88,6 +88,28 @@ public class Neo4jDB implements AutoCloseable
         }
     }
 
+    //Very early version. Just to check if everything works.
+    public boolean deleteANode( final String message )
+    {
+        try ( Session session = driver.session() )
+        {
+            String greeting = session.writeTransaction( new TransactionWork<String>()
+            {
+                @Override
+                public String execute( Transaction tx )
+                {
+                    Result result = tx.run( "MATCH (a:Greeting) where id(a)=1000" +
+                                    "DETACH DELETE a " +
+                                    "RETURN '(DB) a node is deleted from neo4j db'",
+                            parameters( "message", message ) );
+                    return result.single().get( 0 ).asString();
+                }
+            } );
+            System.out.println( greeting ); //temporary for testing
+            return true;
+        }
+    }
+
     //legacy code remains only as example.
 //    public static void main( String... args ) throws Exception
 //    {

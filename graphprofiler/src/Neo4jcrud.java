@@ -7,7 +7,7 @@ public class Neo4jcrud {
             if(Dataholder.neo4j_script_test){
                 //run the database
                 Neo4jDB neo4j = new Neo4jDB( "bolt://localhost:7687", "profiler", "profiler" );
-                neo4j.createANodeTest("(DB) Creating a node on Neo4j");
+                boolean tmp = neo4j.createANode("(DB) Creating a node on Neo4j");
                 //System.out.println("Creating a node on Neo4j");
                 return true;
             } else {
@@ -31,7 +31,9 @@ public class Neo4jcrud {
         if(Dataholder.databases_allowed){
             if(Dataholder.neo4j_script_test){
                 //run the database
-                System.out.println("(DB)Updating a node on Neo4j");
+                Neo4jDB neo4j = new Neo4jDB( "bolt://localhost:7687", "profiler", "profiler" );
+                String msg = "(DB )Updating a node on Neo4j"; //it should be a random number or something
+                boolean tmp = neo4j.updateANode(msg);
                 return true;
             } else {
                 //print a statement

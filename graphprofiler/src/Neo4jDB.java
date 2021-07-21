@@ -76,7 +76,7 @@ public class Neo4jDB implements AutoCloseable
                 @Override
                 public String execute( Transaction tx )
                 {
-                    Result result = tx.run( "MATCH (a:Greeting) WHERE id(a)=169" +
+                    Result result = tx.run( "MATCH (a:Greeting) WHERE a.message = $message " +
                                     "SET a.message = $message " +
                                     "RETURN a.message + ', from node ' + id(a)",
                             parameters( "message", message ) );

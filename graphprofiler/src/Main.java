@@ -344,10 +344,12 @@ public class Main {
                 Neo4jcrud.create();
             }
         } else if(operation.equalsIgnoreCase("update")){
+            Neo4jcrud.createOneNode();
             for (int x = 0; x < N; x++) {
-                Dataholder.countUpdate = x;
                 Neo4jcrud.update();
+                Dataholder.countUpdate = x;
             }
+            Neo4jcrud.deleteOne();
         } else {
             for (int x = 0; x < N; x++) {
                 Dataholder.countDeletion = x;

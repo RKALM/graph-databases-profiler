@@ -81,6 +81,7 @@ public class Main {
     //the scripts run
     static void run() {
         for (int x = 0; x < repetititons; x++) {
+            Dataholder.round = x;
             if (graphDatabse.equalsIgnoreCase("graphdb")) {
                 //run graphdb script
                 System.out.println(" ");
@@ -331,6 +332,7 @@ public class Main {
 
     //running a specific CRUD operation on Neo4j for N times. it should return the time that was taken
     static long scriptNeo4jNtimes(String operation, int N) {
+        Dataholder.indicatorN = N;
         Timer genericTimer2 = new Timer();
         System.out.println(" ");
         System.out.println("Running " + operation + " script on the Neo4j for " + N + " operations");
@@ -338,14 +340,17 @@ public class Main {
         genericTimer2.startTimer();
         if(operation.equalsIgnoreCase("create")){
             for (int x = 0; x < N; x++) {
+                Dataholder.countAddition = x;
                 Neo4jcrud.create();
             }
         } else if(operation.equalsIgnoreCase("update")){
             for (int x = 0; x < N; x++) {
+                Dataholder.countUpdate = x;
                 Neo4jcrud.update();
             }
         } else {
             for (int x = 0; x < N; x++) {
+                Dataholder.countDeletion = x;
                 Neo4jcrud.delete();
             }
         }
@@ -449,6 +454,7 @@ public class Main {
 
     //running a specific CRUD operation on GraphDB for N times. it should return the time that was taken
     static long scriptGraphDBNtimes(String operation, int N) {
+        Dataholder.indicatorN = N;
         Timer genericTimer2 = new Timer();
         System.out.println(" ");
         System.out.println("Running " + operation + " script on the GraphDB for " + N + " operations");
@@ -456,14 +462,17 @@ public class Main {
         genericTimer2.startTimer();
         if(operation.equalsIgnoreCase("create")){
             for (int x = 0; x < N; x++) {
+                Dataholder.countAddition = x;
                 Graphdbcrud.create();
             }
         } else if(operation.equalsIgnoreCase("update")){
             for (int x = 0; x < N; x++) {
+                Dataholder.countUpdate = x;
                 Graphdbcrud.update();
             }
         } else {
             for (int x = 0; x < N; x++) {
+                Dataholder.countDeletion = x;
                 Graphdbcrud.delete();
             }
         }
@@ -566,6 +575,7 @@ public class Main {
 
     //running a specific CRUD operation on OrientDB for N times. it should return the time that was taken
     static long scriptOrientDBNtimes(String operation, int N) {
+        Dataholder.indicatorN = N;
         Timer genericTimer2 = new Timer();
         System.out.println(" ");
         System.out.println("Running " + operation + " script on the OrientDB for " + N + " operations");
@@ -573,14 +583,17 @@ public class Main {
         genericTimer2.startTimer();
         if(operation.equalsIgnoreCase("create")){
             for (int x = 0; x < N; x++) {
+                Dataholder.countAddition = x;
                 Orientdbcrud.create();
             }
         } else if(operation.equalsIgnoreCase("update")){
             for (int x = 0; x < N; x++) {
+                Dataholder.countUpdate = x;
                 Orientdbcrud.update();
             }
         } else {
             for (int x = 0; x < N; x++) {
+                Dataholder.countDeletion = x;
                 Orientdbcrud.delete();
             }
         }

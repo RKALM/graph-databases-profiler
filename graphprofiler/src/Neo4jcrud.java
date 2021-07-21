@@ -7,7 +7,7 @@ public class Neo4jcrud {
             if(Dataholder.neo4j_script_test){
                 //run the database
                 Neo4jDB neo4j = new Neo4jDB( "bolt://localhost:7687", "profiler", "profiler" );
-                boolean tmp = neo4j.createANode("(DB) Creating a node on Neo4j");
+                boolean tmp = neo4j.createANode(Dataholder.round + "" + Dataholder.indicatorN + "" + Dataholder.countAddition);
                 //System.out.println("Creating a node on Neo4j");
                 return true;
             } else {
@@ -32,7 +32,7 @@ public class Neo4jcrud {
             if(Dataholder.neo4j_script_test){
                 //run the database
                 Neo4jDB neo4j = new Neo4jDB( "bolt://localhost:7687", "profiler", "profiler" );
-                String msg = "(DB )Updating a node on Neo4j"; //it should be a random number or something
+                String msg = "(DB) Updating a node on Neo4j #" + Dataholder.countUpdate;
                 boolean tmp = neo4j.updateANode(msg);
                 return true;
             } else {
@@ -54,7 +54,7 @@ public class Neo4jcrud {
             if(Dataholder.neo4j_script_test){
                 //run the database
                 Neo4jDB neo4j = new Neo4jDB( "bolt://localhost:7687", "profiler", "profiler" );
-                boolean tmp = neo4j.deleteANode("(DB)Deleting a node on Neo4j");
+                boolean tmp = neo4j.deleteANode(Dataholder.round + "" + Dataholder.indicatorN + "" + Dataholder.countDeletion);
                 //System.out.println("(DB)Deleting a node on Neo4j");
                 return true;
             } else {

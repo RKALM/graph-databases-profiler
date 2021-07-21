@@ -98,7 +98,7 @@ public class Neo4jDB implements AutoCloseable
                 @Override
                 public String execute( Transaction tx )
                 {
-                    Result result = tx.run( "MATCH (a:Greeting) where id(a)=1000" +
+                    Result result = tx.run( "MATCH (a:Greeting) WHERE a.message = $message " +
                                     "DETACH DELETE a " +
                                     "RETURN '(DB) a node is deleted from neo4j db'",
                             parameters( "message", message ) );

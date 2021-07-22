@@ -6,6 +6,7 @@ public class Orientdbcrud {
             if(Dataholder.orientdb_script_test){
                 //run the database
                 System.out.println("(DB) Creating a node on OrientDB");
+                OrientDbDB.testScript(); //just for test. run it only in low interval
                 return true;
             } else {
                 //print a statement

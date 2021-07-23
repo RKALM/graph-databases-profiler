@@ -7,7 +7,7 @@ public class Orientdbcrud {
                 //run the database
                 //System.out.println("(DB) Creating a node on OrientDB");
                 //OrientDbDB.testScript(); //just for test. run it only in low interval
-                OrientDbDB.createANode("test2" + Dataholder.round + "" + Dataholder.indicatorN + "" + Dataholder.countAddition);
+                OrientDbDB.createANode(Dataholder.round + "" + Dataholder.indicatorN + "" + Dataholder.countAddition);
                 //OrientDbDB.executeAQuery("test" + Dataholder.round + "" + Dataholder.indicatorN + "" + Dataholder.countAddition);
                 return true;
             } else {
@@ -28,7 +28,7 @@ public class Orientdbcrud {
             if(Dataholder.orientdb_script_test){
                 //run the database
                 //System.out.println("(DB) Updating a node on OrientDB");
-                OrientDbDB.updateANode("test2" + Dataholder.round + "" + Dataholder.indicatorN + "" + Dataholder.countUpdate);
+                OrientDbDB.updateANode(Dataholder.round + "" + Dataholder.indicatorN + "" + Dataholder.countUpdate);
                 return true;
             } else {
                 //print a statement
@@ -48,7 +48,7 @@ public class Orientdbcrud {
             if(Dataholder.orientdb_script_test){
                 //run the database
                 //System.out.println("(DB) Deleting a node on OrientDB");
-                OrientDbDB.deleteANodeFake("test2" + Dataholder.round + "" + Dataholder.indicatorN + "" + Dataholder.countDeletion);
+                OrientDbDB.deleteANodeFake(Dataholder.round + "" + Dataholder.indicatorN + "" + Dataholder.countDeletion);
                 return true;
             } else {
                 //print a statement

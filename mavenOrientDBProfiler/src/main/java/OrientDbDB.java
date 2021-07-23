@@ -1,6 +1,7 @@
 import com.orientechnologies.orient.core.db.ODatabaseSession;
 import com.orientechnologies.orient.core.db.OrientDB;
 import com.orientechnologies.orient.core.db.OrientDBConfig;
+import com.orientechnologies.orient.core.id.ORID;
 import com.orientechnologies.orient.core.metadata.schema.OClass;
 import com.orientechnologies.orient.core.metadata.schema.OType;
 import com.orientechnologies.orient.core.record.OEdge;
@@ -116,13 +117,16 @@ public class OrientDbDB {
         rs.close(); //REMEMBER TO ALWAYS CLOSE THE RESULT SET!!!
     }
 
+    //deletion through a tombstone
     public static void deleteANodeFake(String name) {
         String query = "SELECT from Person WHERE name = ?";
         OResultSet rs = db.command(query, name);
-        while (rs.hasNext()) {
-            OResult item = rs.next();
-            System.out.println("name: " + item.getProperty("name"));
-        }
+        rs.next().getVertex().ifPresent(x->{
+            String nickname = "deleted " + name;
+            x.setProperty("name", nickname);
+            System.out.println(x);
+            x.save();
+        });
         rs.close(); //REMEMBER TO ALWAYS CLOSE THE RESULT SET!!!
     }
 

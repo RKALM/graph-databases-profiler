@@ -104,8 +104,14 @@ public class OrientDbDB {
         String query = "SELECT from Person WHERE name = ?";
         OResultSet rs = db.command(query, name);
         while (rs.hasNext()) {
-            OResult item = rs.next();
-            System.out.println("name: " + item.getProperty("name"));
+            rs.next().getVertex().ifPresent(x->{
+                String nickname = "updated" + name;
+                x.setProperty("name", nickname);
+                System.out.println(x);
+                x.save();
+            });
+            //OResult item = rs.next();
+            //System.out.println("name: " + item.getProperty("name"));
         }
         rs.close(); //REMEMBER TO ALWAYS CLOSE THE RESULT SET!!!
     }

@@ -583,6 +583,7 @@ public class Main {
         System.out.println("Running " + operation + " script on the OrientDB for " + N + " operations");
         System.out.println("===========================");
         genericTimer2.startTimer();
+        OrientDbDB.startScript();
         if(operation.equalsIgnoreCase("create")){
             for (int x = 0; x < N; x++) {
                 Dataholder.countAddition = x;
@@ -599,6 +600,7 @@ public class Main {
                 Orientdbcrud.delete();
             }
         }
+        OrientDbDB.endScript();
 //        for (int x = 0; x < N; x++) {
 //            System.out.println("Running " + operation + " operation #" + x + " on OrientDB");
 //        }

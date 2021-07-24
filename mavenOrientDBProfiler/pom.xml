@@ -24,6 +24,11 @@
             <artifactId>orientdb-client</artifactId>
             <version>3.2.0</version>
         </dependency>
+        <dependency>
+            <groupId>com.ontotext.graphdb</groupId>
+            <artifactId>graphdb-free-runtime</artifactId>
+            <version>8.5.0</version>
+        </dependency>
     </dependencies>
 
     <properties>

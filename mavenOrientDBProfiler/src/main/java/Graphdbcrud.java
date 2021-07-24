@@ -5,7 +5,8 @@ public class Graphdbcrud {
         if(Dataholder.databases_allowed){
             if(Dataholder.graphdb_script_test){
                 //run the database
-                System.out.println("(DB) Creating a node on GraphDB");
+                //System.out.println("(DB) Creating a node on GraphDB");
+                GraphDbDB.testScript();
                 return true;
             } else {
                 //print a statement

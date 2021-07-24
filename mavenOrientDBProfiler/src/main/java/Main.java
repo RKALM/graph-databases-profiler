@@ -458,6 +458,7 @@ public class Main {
     static long scriptGraphDBNtimes(String operation, int N) {
         Dataholder.indicatorN = N;
         Timer genericTimer2 = new Timer();
+        //GraphDbDB.startScript();
         System.out.println(" ");
         System.out.println("Running " + operation + " script on the GraphDB for " + N + " operations");
         System.out.println("===========================");
@@ -481,6 +482,7 @@ public class Main {
 //        for (int x = 0; x < N; x++) {
 //            System.out.println("Running " + operation + " operation #" + x + " on GraphDB");
 //        }
+        //GraphDbDB.endScript();
         genericTimer2.stopTimer();
         return genericTimer2.getTime();
     }

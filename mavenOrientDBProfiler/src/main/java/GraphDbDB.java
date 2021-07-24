@@ -16,6 +16,10 @@ import org.slf4j.Marker;
 import org.slf4j.MarkerFactory;
 
 public class GraphDbDB {
+    static RepositoryConnection repositoryConnection = null;
+    static String additionID = "genericid"; //its used as an identifier. Same as the message which,
+    // (for some reason), is not centralized
+
     private static Logger logger =
             LoggerFactory.getLogger(GraphDbDB.class);
     // Why This Failure marker
@@ -31,20 +35,11 @@ public class GraphDbDB {
     private static String strQuery;
 
     static {
-        strInsert =
+        /*strInsert =
                 "INSERT DATA {"
-                        + "<http://dbpedia.org/resource/Grace_Hopper> <http://dbpedia.org/ontology/birthDate> \"1906-12-09\"^^<http://www.w3.org/2001/XMLSchema#date> ."
-                        + "<http://dbpedia.org/resource/Grace_Hopper> <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/New_York_City> ."
-                        + "<http://dbpedia.org/resource/Grace_Hopper> <http://dbpedia.org/ontology/deathDate> \"1992-01-01\"^^<http://www.w3.org/2001/XMLSchema#date> ."
-                        + "<http://dbpedia.org/resource/Grace_Hopper> <http://dbpedia.org/ontology/deathPlace> <http://dbpedia.org/resource/Arlington_County,_Virginia> ."
-                        + "<http://dbpedia.org/resource/Grace_Hopper> <http://purl.org/dc/terms/description> \"American computer scientist and United States Navy officer.\" ."
-                        + "<http://dbpedia.org/resource/Grace_Hopper> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Person> ."
-                        + "<http://dbpedia.org/resource/Grace_Hopper> <http://xmlns.com/foaf/0.1/gender> \"female\" ."
-                        + "<http://dbpedia.org/resource/Grace_Hopper> <http://xmlns.com/foaf/0.1/givenName> \"Grace\" ."
-                        + "<http://dbpedia.org/resource/Grace_Hopper> <http://xmlns.com/foaf/0.1/name> \"Grace Hopper\" ."
-                        + "<http://dbpedia.org/resource/Grace_Hopper> <http://xmlns.com/foaf/0.1/surname> \"Hopper\" ."
-                        + "<http://dbpedia.org/resource/Grace_Hopper2> <http://xmlns.com/foaf/0.1/surname> \"Hopper2\" ."
-                        + "}";
+                        + "<http://dbpedia.org/resource/" + additionID + "> <http://xmlns.com/foaf/0.1/name> \""
+                        + additionID + "\" ."
+                        + "}";*/
 
         strQuery =
                 "SELECT ?name FROM DEFAULT WHERE {" +
@@ -62,8 +57,15 @@ public class GraphDbDB {
 
     private static void insert(
             RepositoryConnection repositoryConnection) {
-
         repositoryConnection.begin();
+        additionID = "test" + Dataholder.round + "" + Dataholder.indicatorN + "" + Dataholder.countAddition
+                + "";
+        strInsert =
+                "INSERT DATA {"
+                        + "<http://dbpedia.org/resource/" + additionID + "> <http://xmlns.com/foaf/0.1/name> \""
+                        + additionID + "\" ."
+                        + "}";
+        System.out.println(strInsert);
         Update updateOperation = repositoryConnection
                 .prepareUpdate(QueryLanguage.SPARQL, strInsert);
         updateOperation.execute();
@@ -113,6 +115,40 @@ public class GraphDbDB {
         } finally {
             repositoryConnection.close();
         }
-    }
+    }//testscript ends here
+
+    public static void startScript() {
+        //RepositoryConnection repositoryConnection = null;
+        try {
+            repositoryConnection = getRepositoryConnection();
+
+            //insert(repositoryConnection);
+            //query(repositoryConnection);
+
+        } catch (Throwable t) {
+            logger.error(WTF_MARKER, t.getMessage(), t);
+            Dataholder.graphdb_script_test = false;
+        }
+    }//startscript ends here
+
+
+    public static void endScript() {
+        repositoryConnection.close();
+    }//endscript ends here
+
+    public static void createANode() {
+        //RepositoryConnection repositoryConnection = null;
+        try {
+            repositoryConnection = getRepositoryConnection();
+            //additionID = "\"test" + Dataholder.round + "" + Dataholder.indicatorN + "" + Dataholder.countAddition + "\"";
+            insert(repositoryConnection);
+            query(repositoryConnection);
+
+        } catch (Throwable t) {
+            logger.error(WTF_MARKER, t.getMessage(), t);
+        } finally {
+            repositoryConnection.close();
+        }
+    }//createANode ends here
 }
 

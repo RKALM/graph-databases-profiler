@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6a83f96e-cb74-4b4c-96b0-c7c079053c0d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GraphDbDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GraphDbDB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Graphdbcrud.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Graphdbcrud.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphDbDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GraphDbDB.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Graphdbcrud.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Graphdbcrud.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

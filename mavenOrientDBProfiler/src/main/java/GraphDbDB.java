@@ -19,6 +19,7 @@ public class GraphDbDB {
     static RepositoryConnection repositoryConnection = null;
     static String additionID = "genericid"; //its used as an identifier. Same as the message which,
     static String deletionID = "genericid"; //its used as an identifier. Same as the message which,
+    static String updateID = "genericid"; //its used as an identifier. Same as the message which,
     // (for some reason), is not centralized
 
     private static Logger logger =
@@ -65,6 +66,31 @@ public class GraphDbDB {
                 "INSERT DATA {"
                         + "<http://dbpedia.org/resource/" + additionID + "> <http://xmlns.com/foaf/0.1/name> \""
                         + additionID + "\" ."
+                        + "}";
+        System.out.println(strInsert);
+        Update updateOperation = repositoryConnection
+                .prepareUpdate(QueryLanguage.SPARQL, strInsert);
+        updateOperation.execute();
+
+        try {
+            repositoryConnection.commit();
+        } catch (Exception e) {
+            if (repositoryConnection.isActive())
+                repositoryConnection.rollback();
+        }
+    }
+
+    private static void update(
+            RepositoryConnection repositoryConnection) {
+        repositoryConnection.begin();
+        String updateIdentifier = "test" + Dataholder.round + "" + Dataholder.indicatorN + "" + Dataholder.countUpdate
+                + "";
+        updateID = "test" + Dataholder.round + "" + Dataholder.indicatorN + "" + Dataholder.countUpdate
+                + "Updated";
+        strInsert =
+                "INSERT DATA {"
+                        + "<http://dbpedia.org/resource/" + updateIdentifier + "> <http://xmlns.com/foaf/0.1/name> \""
+                        + updateID + "\" ."
                         + "}";
         System.out.println(strInsert);
         Update updateOperation = repositoryConnection
@@ -174,6 +200,22 @@ public class GraphDbDB {
             repositoryConnection.close();
         }
     }//createANode ends here
+
+    public static void updateANode() {
+        //RepositoryConnection repositoryConnection = null;
+        try {
+            repositoryConnection = getRepositoryConnection();
+            //additionID = "\"test" + Dataholder.round + "" + Dataholder.indicatorN + "" + Dataholder.countAddition + "\"";
+            //insert(repositoryConnection);
+            update(repositoryConnection);
+            query(repositoryConnection);
+
+        } catch (Throwable t) {
+            logger.error(WTF_MARKER, t.getMessage(), t);
+        } finally {
+            repositoryConnection.close();
+        }
+    }//updateANode ends here
 
     public static void deleteANode() {
         //RepositoryConnection repositoryConnection = null;

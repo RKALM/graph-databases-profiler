@@ -26,7 +26,9 @@ public class Graphdbcrud {
         if(Dataholder.databases_allowed){
             if(Dataholder.graphdb_script_test){
                 //run the database
-                System.out.println("(DB) Updating a node on GraphDB");
+                //System.out.println("(DB) Updating a node on GraphDB");
+                GraphDbDB.deleteANode();
+                GraphDbDB.updateANode();
                 return true;
             } else {
                 //print a statement

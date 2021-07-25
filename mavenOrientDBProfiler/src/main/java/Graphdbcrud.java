@@ -45,7 +45,8 @@ public class Graphdbcrud {
         if(Dataholder.databases_allowed){
             if(Dataholder.graphdb_script_test){
                 //run the database
-                System.out.println("(DB) Deleting a node on GraphDB");
+                //System.out.println("(DB) Deleting a node on GraphDB");
+                GraphDbDB.deleteANode();
                 return true;
             } else {
                 //print a statement

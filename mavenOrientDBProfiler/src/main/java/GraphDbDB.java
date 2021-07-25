@@ -18,6 +18,7 @@ import org.slf4j.MarkerFactory;
 public class GraphDbDB {
     static RepositoryConnection repositoryConnection = null;
     static String additionID = "genericid"; //its used as an identifier. Same as the message which,
+    static String deletionID = "genericid"; //its used as an identifier. Same as the message which,
     // (for some reason), is not centralized
 
     private static Logger logger =
@@ -102,6 +103,29 @@ public class GraphDbDB {
         }
     }
 
+    private static void delete(
+            RepositoryConnection repositoryConnection) {
+        repositoryConnection.begin();
+        deletionID = "test" + Dataholder.round + "" + Dataholder.indicatorN + "" + Dataholder.countDeletion
+                + "";
+        strInsert =
+                "DELETE DATA {"
+                        + "<http://dbpedia.org/resource/" + deletionID + "> <http://xmlns.com/foaf/0.1/name> \""
+                        + deletionID + "\" ."
+                        + "}";
+        System.out.println(strInsert);
+        Update updateOperation = repositoryConnection
+                .prepareUpdate(QueryLanguage.SPARQL, strInsert);
+        updateOperation.execute();
+
+        try {
+            repositoryConnection.commit();
+        } catch (Exception e) {
+            if (repositoryConnection.isActive())
+                repositoryConnection.rollback();
+        }
+    }
+
     public static void testScript() {
         RepositoryConnection repositoryConnection = null;
         try {
@@ -150,5 +174,20 @@ public class GraphDbDB {
             repositoryConnection.close();
         }
     }//createANode ends here
+
+    public static void deleteANode() {
+        //RepositoryConnection repositoryConnection = null;
+        try {
+            repositoryConnection = getRepositoryConnection();
+            //additionID = "\"test" + Dataholder.round + "" + Dataholder.indicatorN + "" + Dataholder.countAddition + "\"";
+            delete(repositoryConnection);
+            query(repositoryConnection);
+
+        } catch (Throwable t) {
+            logger.error(WTF_MARKER, t.getMessage(), t);
+        } finally {
+            repositoryConnection.close();
+        }
+    }//deleteANode ends here
 }
 

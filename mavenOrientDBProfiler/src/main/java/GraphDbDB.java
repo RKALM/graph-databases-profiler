@@ -60,8 +60,8 @@ public class GraphDbDB {
     private static void insert(
             RepositoryConnection repositoryConnection) {
         repositoryConnection.begin();
-        additionID = "test" + Dataholder.round + "" + Dataholder.indicatorN + "" + Dataholder.countAddition
-                + "";
+        additionID = Dataholder.customSeed + "" + Dataholder.dateSeed + "" + Dataholder.round + ""
+                + Dataholder.indicatorN + "" + Dataholder.countAddition + "";
         strInsert =
                 "INSERT DATA {"
                         + "<http://dbpedia.org/resource/" + additionID + "> <http://xmlns.com/foaf/0.1/name> \""
@@ -83,9 +83,9 @@ public class GraphDbDB {
     private static void update(
             RepositoryConnection repositoryConnection) {
         repositoryConnection.begin();
-        String updateIdentifier = "test" + Dataholder.round + "" + Dataholder.indicatorN + "" + Dataholder.countUpdate
+        String updateIdentifier = Dataholder.customSeed + "" + Dataholder.dateSeed + "" + Dataholder.round + "" + Dataholder.indicatorN + "" + Dataholder.countUpdate
                 + "";
-        updateID = "test" + Dataholder.round + "" + Dataholder.indicatorN + "" + Dataholder.countUpdate
+        updateID = Dataholder.customSeed + "" + Dataholder.dateSeed + "" + Dataholder.round + "" + Dataholder.indicatorN + "" + Dataholder.countUpdate
                 + "Updated";
         strInsert =
                 "INSERT DATA {"
@@ -132,7 +132,7 @@ public class GraphDbDB {
     private static void delete(
             RepositoryConnection repositoryConnection) {
         repositoryConnection.begin();
-        deletionID = "test" + Dataholder.round + "" + Dataholder.indicatorN + "" + Dataholder.countDeletion
+        deletionID = Dataholder.customSeed + "" + Dataholder.dateSeed + "" + Dataholder.round + "" + Dataholder.indicatorN + "" + Dataholder.countDeletion
                 + "";
         strInsert =
                 "DELETE DATA {"

@@ -240,6 +240,7 @@ public class Main {
     //=============================== Neo4j Scripts ========================================
     //running a specific CRUD script on Neo4j for several intervals. it should store the statistics for each one.
     static void scriptNeo4j(String operation, int Xint) {
+        Dataholder.neo4j = new Neo4jDB( "bolt://localhost:7687", "profiler", "profiler" );
         System.out.println("Running " + operation + " script on the Neo4j for several intervals");
         System.out.println("=================================================");
         //10N

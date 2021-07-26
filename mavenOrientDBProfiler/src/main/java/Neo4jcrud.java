@@ -6,8 +6,9 @@ public class Neo4jcrud {
         if(Dataholder.databases_allowed){
             if(Dataholder.neo4j_script_test){
                 //run the database
-                Neo4jDB neo4j = new Neo4jDB( "bolt://localhost:7687", "profiler", "profiler" );
-                boolean tmp = neo4j.createANode(Dataholder.round + "" + Dataholder.indicatorN + "" + Dataholder.countAddition);
+                //Neo4jDB neo4j = new Neo4jDB( "bolt://localhost:7687", "profiler", "profiler" );
+                boolean tmp = Dataholder.neo4j.createANode(Dataholder.customSeed + "" + Dataholder.dateSeed + ""
+                        + Dataholder.round + "" + Dataholder.indicatorN + "" + Dataholder.countAddition);
                 //System.out.println("Creating a node on Neo4j");
                 return true;
             } else {
@@ -32,8 +33,9 @@ public class Neo4jcrud {
         if(Dataholder.databases_allowed){
             if(Dataholder.neo4j_script_test){
                 //run the database
-                Neo4jDB neo4j = new Neo4jDB( "bolt://localhost:7687", "profiler", "profiler" );
-                boolean tmp = neo4j.createANode("toUpdateit");
+                //Neo4jDB neo4j = new Neo4jDB( "bolt://localhost:7687", "profiler", "profiler" );
+                boolean tmp = Dataholder.neo4j.createANode("updated" + Dataholder.customSeed + "" + Dataholder.dateSeed + ""
+                        + Dataholder.round + "" + Dataholder.indicatorN + "" + Dataholder.countAddition);
                 //System.out.println("Creating a node on Neo4j");
                 return true;
             } else {
@@ -57,9 +59,10 @@ public class Neo4jcrud {
         if(Dataholder.databases_allowed){
             if(Dataholder.neo4j_script_test){
                 //run the database
-                Neo4jDB neo4j = new Neo4jDB( "bolt://localhost:7687", "profiler", "profiler" );
-                String msg = "toUpdateit";
-                boolean tmp = neo4j.updateANode(msg);
+                //Neo4jDB neo4j = new Neo4jDB( "bolt://localhost:7687", "profiler", "profiler" );
+                String msg = "updated" + Dataholder.customSeed + "" + Dataholder.dateSeed + ""
+                        + Dataholder.round + "" + Dataholder.indicatorN + "" + Dataholder.countAddition;
+                boolean tmp = Dataholder.neo4j.updateANode(msg);
                 return true;
             } else {
                 //print a statement
@@ -79,8 +82,9 @@ public class Neo4jcrud {
         if(Dataholder.databases_allowed){
             if(Dataholder.neo4j_script_test){
                 //run the database
-                Neo4jDB neo4j = new Neo4jDB( "bolt://localhost:7687", "profiler", "profiler" );
-                boolean tmp = neo4j.deleteANode(Dataholder.round + "" + Dataholder.indicatorN + "" + Dataholder.countDeletion);
+                //Neo4jDB neo4j = new Neo4jDB( "bolt://localhost:7687", "profiler", "profiler" );
+                boolean tmp = Dataholder.neo4j.deleteANode(Dataholder.customSeed + "" + Dataholder.dateSeed + ""
+                        + Dataholder.round + "" + Dataholder.indicatorN + "" + Dataholder.countDeletion);
                 //System.out.println("(DB)Deleting a node on Neo4j");
                 return true;
             } else {
@@ -100,8 +104,9 @@ public class Neo4jcrud {
         if(Dataholder.databases_allowed){
             if(Dataholder.neo4j_script_test){
                 //run the database
-                Neo4jDB neo4j = new Neo4jDB( "bolt://localhost:7687", "profiler", "profiler" );
-                boolean tmp = neo4j.deleteANode("toUpdateit");
+                //Neo4jDB neo4j = new Neo4jDB( "bolt://localhost:7687", "profiler", "profiler" );
+                boolean tmp = Dataholder.neo4j.deleteANode("updated" + Dataholder.customSeed + "" + Dataholder.dateSeed + ""
+                        + Dataholder.round + "" + Dataholder.indicatorN + "" + Dataholder.countAddition);
                 //System.out.println("(DB)Deleting a node on Neo4j");
                 return true;
             } else {

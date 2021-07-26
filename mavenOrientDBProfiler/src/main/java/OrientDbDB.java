@@ -23,7 +23,7 @@ public class OrientDbDB {
     public static void startScript() {
 
         orient = new OrientDB("remote:localhost", OrientDBConfig.defaultConfig());
-        db = orient.open("demodb", "root", "12345");
+        db = orient.open("test", "admin", "12345");
 
         //createSchema(db);
 
@@ -40,7 +40,7 @@ public class OrientDbDB {
     public static void testScript() { //don;t use it. only for testing purposes
 
         OrientDB orient = new OrientDB("remote:localhost", OrientDBConfig.defaultConfig());
-        db = orient.open("demodb", "root", "12345");
+        db = orient.open("test", "admin", "12345");
 
         createSchema(db);
 

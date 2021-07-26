@@ -55,9 +55,6 @@ public class Main {
         } else {
             graphDatabse = "neo4j";
         }
-        System.out.println("[1]Neo4j");
-        System.out.println("[2]GraphDB");
-        System.out.println("[3]OrientDB");
 
         //Declaring the CRUD operation
         System.out.println("Which protocol do you wish to use: ");
@@ -240,7 +237,11 @@ public class Main {
     //=============================== Neo4j Scripts ========================================
     //running a specific CRUD script on Neo4j for several intervals. it should store the statistics for each one.
     static void scriptNeo4j(String operation, int Xint) {
-        Dataholder.neo4j = new Neo4jDB( "bolt://localhost:7687", "profiler", "profiler" );
+        if(Dataholder.databases_allowed){
+            if(Dataholder.neo4j_script_test){
+                Dataholder.neo4j = new Neo4jDB( "bolt://localhost:7687", "profiler", "profiler" );
+            }
+        }
         System.out.println("Running " + operation + " script on the Neo4j for several intervals");
         System.out.println("=================================================");
         //10N
@@ -586,7 +587,11 @@ public class Main {
         System.out.println("Running " + operation + " script on the OrientDB for " + N + " operations");
         System.out.println("===========================");
         genericTimer2.startTimer();
-        OrientDbDB.startScript();
+        if(Dataholder.databases_allowed){
+            if(Dataholder.orientdb_script_test){
+                OrientDbDB.startScript();
+            }
+        }
         if(operation.equalsIgnoreCase("create")){
             for (int x = 0; x < N; x++) {
                 Dataholder.countAddition = x;
@@ -603,7 +608,12 @@ public class Main {
                 Orientdbcrud.delete();
             }
         }
-        OrientDbDB.endScript();
+
+        if(Dataholder.databases_allowed){
+            if(Dataholder.orientdb_script_test){
+                OrientDbDB.endScript();
+            }
+        }
 //        for (int x = 0; x < N; x++) {
 //            System.out.println("Running " + operation + " operation #" + x + " on OrientDB");
 //        }

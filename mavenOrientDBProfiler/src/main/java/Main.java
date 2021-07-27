@@ -20,12 +20,30 @@ public class Main {
     public static long[] times100000n;
     public static long[] times1000000n;
 
+    static long avg10n;
+    static long avg100n;
+    static long avg1000n;
+    static long avg10000n;
+    static long avg100000n;
+    static long avg1000000n;
+
+    //turning the averages into seconds
+    static String avg10nsec;
+    static String avg100nsec;
+    static String avg1000nsec;
+    static String avg10000nsec;
+    static String avg100000nsec;
+    static String avg1000000nsec;
+
     public static void main(String args[]) {
         System.out.println("Welcome to profiler");
         System.out.println("===================");
         menu();
         run();
         displayer();
+        if(Dataholder.analyzer_allowed){
+            analyzer();
+        }
     }
 
     //the user makes his choices
@@ -175,20 +193,20 @@ public class Main {
         } //if Dataholder.N100_allowed ends here
 
         //finding the average times
-        long avg10n = sum10n / repetititons;
-        long avg100n = sum100n / repetititons;
-        long avg1000n = sum1000n / repetititons;
-        long avg10000n = sum10000n / repetititons;
-        long avg100000n = sum100000n / repetititons;
-        long avg1000000n = sum1000000n / repetititons;
+        avg10n = sum10n / repetititons;
+        avg100n = sum100n / repetititons;
+        avg1000n = sum1000n / repetititons;
+        avg10000n = sum10000n / repetititons;
+        avg100000n = sum100000n / repetititons;
+        avg1000000n = sum1000000n / repetititons;
 
         //turning the averages into seconds
-        String avg10nsec = formatter.format(avg10n / 1000000000d);
-        String avg100nsec = formatter.format(avg100n / 1000000000d);
-        String avg1000nsec = formatter.format(avg1000n / 1000000000d);
-        String avg10000nsec = formatter.format(avg10000n / 1000000000d);
-        String avg100000nsec = formatter.format(avg100000n / 1000000000d);
-        String avg1000000nsec = formatter.format(avg1000000n / 1000000000d);
+        avg10nsec = formatter.format(avg10n / 1000000000d);
+        avg100nsec = formatter.format(avg100n / 1000000000d);
+        avg1000nsec = formatter.format(avg1000n / 1000000000d);
+        avg10000nsec = formatter.format(avg10000n / 1000000000d);
+        avg100000nsec = formatter.format(avg100000n / 1000000000d);
+        avg1000000nsec = formatter.format(avg1000000n / 1000000000d);
 
         //Displaying the average times in nanoseconds
         System.out.println("");
@@ -232,6 +250,72 @@ public class Main {
             } //if Dataholder.N1000_allowed ends here
         } //if Dataholder.N100_allowed ends here
     } //The displayer() ends here
+
+    //==================== Algorithmic analysis ===============================================
+
+    public static void analyzer(){
+        System.out.println("");
+        System.out.println("========");
+        System.out.println("ANALYZER");
+        System.out.println("========");
+        System.out.println("The " + crud + " operation through " + graphDatabse + " is being analyzed");
+        System.out.println(repetititons + " samples were taken");
+        System.out.println(" - Input increases 10 times");
+        System.out.println(" - Output: Calculate the ratios");
+        System.out.println("================================================");
+        if(Dataholder.N100_allowed){
+            averageComparison("N10", "N100", avg10n, avg100n, avg10nsec, avg100nsec);
+        }
+        if(Dataholder.N1000_allowed){
+            averageComparison("N100", "N1000", avg100n, avg1000n, avg100nsec, avg1000nsec);
+        }
+        if(Dataholder.N10k_allowed){
+            averageComparison("N1000", "N10000", avg1000n, avg10000n, avg1000nsec, avg10000nsec);
+        }
+        if(Dataholder.N100k_allowed){
+            averageComparison("N10000", "N100000", avg10000n, avg100000n, avg10000nsec, avg100000nsec);
+        }
+        if(Dataholder.million_allowed){
+            averageComparison("N100000", "N1000000", avg100000n, avg1000000n, avg100000nsec, avg1000000nsec);
+        }
+
+    }
+
+
+    //number 1 is the smaller one, while 2 is the bigger one. they need to be multiples of 10
+    public static void averageComparison(String nameAverage1, String nameAverage2, long average1, long average2
+    , String timeAVG1, String timeAVG2){
+        String msg = " <10";
+        long compared =  average2 / average1;
+        String differenceAVG = formatter.format(compared / 1000000000d);
+        System.out.println(nameAverage2 + "/" + nameAverage1 + "=" + timeAVG2 + "/" + timeAVG1 + "="
+                + compared);
+        if(compared > 10){
+            msg = " >10";
+            if(compared < 100){
+                msg = msg + " but <10^2";
+            } else if(compared == 100){
+                msg = msg + " but equals 10^2";
+            } else if(compared == 1000){
+                if(compared < 1000){
+                    msg = msg + " but <10^3";
+                } else if(compared == 1000){
+                    msg = msg + " but equals 10^3";
+                }  else {
+                    msg = msg + " and >10^3";
+                }
+            } else {
+                msg = msg + " and >10^2";
+            }
+        } else if (compared == 10){
+            msg = "  equals 10";
+        } else {
+            msg = " <10";
+        }
+        System.out.println("Analysis: " + msg);
+        System.out.println("=============");
+        System.out.println("");
+    }
 
 
     //=============================== Neo4j Scripts ========================================

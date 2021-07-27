@@ -97,7 +97,9 @@ public class OrientDbDB {
         result.setProperty("name", name);
         //result.setProperty("surname", surname);
         result.save();
-        System.out.println(result); //for testing
+        if(Dataholder.print_allowed){
+            System.out.println(result); //for testing
+        }
         return result;
     }
 
@@ -108,7 +110,9 @@ public class OrientDbDB {
             rs.next().getVertex().ifPresent(x->{
                 String nickname = "updated" + name;
                 x.setProperty("name", nickname);
-                System.out.println(x);
+                if(Dataholder.print_allowed){
+                    System.out.println(x); //for testing
+                }
                 x.save();
             });
             //OResult item = rs.next();
@@ -124,7 +128,9 @@ public class OrientDbDB {
         rs.next().getVertex().ifPresent(x->{
             String nickname = "deleted " + name;
             x.setProperty("name", nickname);
-            System.out.println(x);
+            if(Dataholder.print_allowed){
+                System.out.println(x); //for testing
+            }
             x.save();
         });
         rs.close(); //REMEMBER TO ALWAYS CLOSE THE RESULT SET!!!
@@ -141,7 +147,9 @@ public class OrientDbDB {
     public static void deleteANode3(String name) {
         String query = "DELETE VERTEX from Person WHERE name = ?";
         OResultSet rs = db.command(query, name);
-        System.out.println(rs); //only for testing
+        if(Dataholder.print_allowed){
+            System.out.println(rs); //for testing
+        }
         rs.close(); //REMEMBER TO ALWAYS CLOSE THE RESULT SET!!!
     }
 
@@ -158,7 +166,9 @@ public class OrientDbDB {
 
         while (rs.hasNext()) {
             OResult item = rs.next();
-            System.out.println("friend: " + item.getProperty("name"));
+            if(Dataholder.print_allowed){
+                System.out.println("friend: " + item.getProperty("name")); //for testing
+            }
         }
 
         rs.close(); //REMEMBER TO ALWAYS CLOSE THE RESULT SET!!!
@@ -180,9 +190,10 @@ public class OrientDbDB {
 
         while (rs.hasNext()) {
             OResult item = rs.next();
-            System.out.println("friend: " + item.getProperty("friend"));
+            if(Dataholder.print_allowed){
+                System.out.println("friend: " + item.getProperty("friend")); //for testing
+            }
         }
-
         rs.close();
     }
 }

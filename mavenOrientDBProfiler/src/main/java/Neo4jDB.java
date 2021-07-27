@@ -61,7 +61,9 @@ public class Neo4jDB implements AutoCloseable
                     return result.single().get( 0 ).asString();
                 }
             } );
-            System.out.println( greeting ); //temporary for testing
+            if(Dataholder.print_allowed){
+                System.out.println( greeting ); //temporary for testing
+            }
             return true;
         }
     }
@@ -83,7 +85,9 @@ public class Neo4jDB implements AutoCloseable
                     return result.single().get( 0 ).asString();
                 }
             } );
-            System.out.println( greeting ); //temporary for testing
+            if(Dataholder.print_allowed){
+                System.out.println( greeting ); //temporary for testing
+            }
             return true;
         }
     }
@@ -105,7 +109,9 @@ public class Neo4jDB implements AutoCloseable
                     return result.single().get( 0 ).asString();
                 }
             } );
-            System.out.println( greeting ); //temporary for testing
+            if(Dataholder.print_allowed){
+                System.out.println( greeting ); //temporary for testing
+            }
             return true;
         }
     }

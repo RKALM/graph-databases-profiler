@@ -6,6 +6,8 @@ public class Dataholder {
     //Variables for configuration of the system
     //Special features
     static boolean analyzer_allowed = false;
+    static boolean print_allowed = false; //it is only when it is connected to a database. print statements take resources
+
 
     //Intervals
     static boolean million_allowed = false; //if true the system uses 1 million intervals as well

@@ -17,10 +17,9 @@ import org.slf4j.MarkerFactory;
 
 public class GraphDbDB {
     static RepositoryConnection repositoryConnection = null;
-    static String additionID = "genericid"; //its used as an identifier. Same as the message which,
-    static String deletionID = "genericid"; //its used as an identifier. Same as the message which,
-    static String updateID = "genericid"; //its used as an identifier. Same as the message which,
-    // (for some reason), is not centralized
+    static String additionID = "genericid"; //its used as an identifier.
+    static String deletionID = "genericid"; //its used as an identifier.
+    static String updateID = "genericid"; //its used as an identifier.
 
     private static Logger logger =
             LoggerFactory.getLogger(GraphDbDB.class);
@@ -67,7 +66,9 @@ public class GraphDbDB {
                         + "<http://dbpedia.org/resource/" + additionID + "> <http://xmlns.com/foaf/0.1/name> \""
                         + additionID + "\" ."
                         + "}";
-        System.out.println(strInsert);
+        if(Dataholder.print_allowed){
+            System.out.println(strInsert);
+        }
         Update updateOperation = repositoryConnection
                 .prepareUpdate(QueryLanguage.SPARQL, strInsert);
         updateOperation.execute();
@@ -92,7 +93,9 @@ public class GraphDbDB {
                         + "<http://dbpedia.org/resource/" + updateIdentifier + "> <http://xmlns.com/foaf/0.1/name> \""
                         + updateID + "\" ."
                         + "}";
-        System.out.println(strInsert);
+        if(Dataholder.print_allowed){
+            System.out.println(strInsert);
+        }
         Update updateOperation = repositoryConnection
                 .prepareUpdate(QueryLanguage.SPARQL, strInsert);
         updateOperation.execute();
@@ -139,7 +142,9 @@ public class GraphDbDB {
                         + "<http://dbpedia.org/resource/" + deletionID + "> <http://xmlns.com/foaf/0.1/name> \""
                         + deletionID + "\" ."
                         + "}";
-        System.out.println(strInsert);
+        if(Dataholder.print_allowed){
+            System.out.println(strInsert);
+        }
         Update updateOperation = repositoryConnection
                 .prepareUpdate(QueryLanguage.SPARQL, strInsert);
         updateOperation.execute();

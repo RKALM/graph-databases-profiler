@@ -215,7 +215,7 @@ public class Main {
         System.out.println("The average time of 10 " + crud + " operations is: " + avg10n + " nanoseconds");
         if(Dataholder.N100_allowed){
             System.out.println("The average time of 100 " + crud + " operations is: " + avg100n + " nanoseconds");
-            if(Dataholder.N100k_allowed){
+            if(Dataholder.N1000_allowed){
                 System.out.println("The average time of 1000 " + crud + " operations is: " + avg1000n + " nanoseconds");
                 if(Dataholder.N10k_allowed){
                     System.out.println("The average time of 10000 " + crud + " operations is: " + avg10000n + " nanoseconds");

@@ -1,0 +1,36 @@
+Displaying the times10n array of neo4j: 
+19492484400
+18376420300
+Displaying the times100n arrayof neo4j: 
+185897521100
+182608448900
+Displaying the times1000n arrayof neo4j: 
+1849586247500
+1827497884400
+
+Database:neo4j Repetitions:2 Operations:delete
+===========================================================
+The average time of 10 delete operations is: 18934452350 nanoseconds
+The average time of 100 delete operations is: 184252985000 nanoseconds
+
+Database:neo4j Repetitions:2 Operations:delete
+===========================================================
+The average time of 10 delete operations is: 18.934452350 seconds
+The average time of 100 delete operations is: 184.252985000 seconds
+The average time of 1000 delete operations is: 1838.542065950 seconds
+
+========
+ANALYZER
+========
+The delete operation through neo4j is being analyzed
+2 samples were taken
+ - Input increases 10 times
+ - Output: Calculate the ratios
+================================================
+N100/N10=184.252985000/18.934452350=9
+Analysis:  <10
+=============
+
+N1000/N100=1838.542065950/184.252985000=9
+Analysis:  <10
+=============

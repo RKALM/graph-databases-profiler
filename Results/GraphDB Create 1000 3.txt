@@ -1,0 +1,40 @@
+Displaying the times10n array of graphdb: 
+3354220300
+1604506300
+1755236100
+Displaying the times100n arrayof graphdb: 
+15734204600
+16321474300
+17065637400
+Displaying the times1000n arrayof graphdb: 
+161883102800
+172260313300
+190547470500
+
+Database:graphdb Repetitions:3 Operations:create
+===========================================================
+The average time of 10 create operations is: 2237987566 nanoseconds
+The average time of 100 create operations is: 16373772100 nanoseconds
+The average time of 1000 create operations is: 174896962200 nanoseconds
+
+Database:graphdb Repetitions:3 Operations:create
+===========================================================
+The average time of 10 create operations is: 2.237987566 seconds
+The average time of 100 create operations is: 16.373772100 seconds
+The average time of 1000 create operations is: 174.896962200 seconds
+
+========
+ANALYZER
+========
+The create operation through graphdb is being analyzed
+3 samples were taken
+ - Input increases 10 times
+ - Output: Calculate the ratios
+================================================
+N100/N10=16.373772100/2.237987566=7
+Analysis:  <10
+=============
+
+N1000/N100=174.896962200/16.373772100=10
+Analysis:   equals 10
+=============

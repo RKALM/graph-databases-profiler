@@ -1,0 +1,40 @@
+Displaying the times10n array of graphdb: 
+3985279000
+2210744700
+2270614600
+Displaying the times100n arrayof graphdb: 
+20088164900
+23549549600
+19087181800
+Displaying the times1000n arrayof graphdb: 
+205532473500
+228796971400
+148495738700
+
+Database:graphdb Repetitions:3 Operations:delete
+===========================================================
+The average time of 10 delete operations is: 2822212766 nanoseconds
+The average time of 100 delete operations is: 20908298766 nanoseconds
+The average time of 1000 delete operations is: 194275061200 nanoseconds
+
+Database:graphdb Repetitions:3 Operations:delete
+===========================================================
+The average time of 10 delete operations is: 2.822212766 seconds
+The average time of 100 delete operations is: 20.908298766 seconds
+The average time of 1000 delete operations is: 194.275061200 seconds
+
+========
+ANALYZER
+========
+The delete operation through graphdb is being analyzed
+3 samples were taken
+ - Input increases 10 times
+ - Output: Calculate the ratios
+================================================
+N100/N10=20.908298766/2.822212766=7
+Analysis:  <10
+=============
+
+N1000/N100=194.275061200/20.908298766=9
+Analysis:  <10
+=============

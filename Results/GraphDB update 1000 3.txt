@@ -1,0 +1,40 @@
+Displaying the times10n array of graphdb: 
+4960733400
+4594633700
+4414125600
+Displaying the times100n arrayof graphdb: 
+37091264700
+40921717400
+44527919000
+Displaying the times1000n arrayof graphdb: 
+392744753200
+429505877700
+469693434700
+
+Database:graphdb Repetitions:3 Operations:update
+===========================================================
+The average time of 10 update operations is: 4656497566 nanoseconds
+The average time of 100 update operations is: 40846967033 nanoseconds
+The average time of 1000 update operations is: 430648021866 nanoseconds
+
+Database:graphdb Repetitions:3 Operations:update
+===========================================================
+The average time of 10 update operations is: 4.656497566 seconds
+The average time of 100 update operations is: 40.846967033 seconds
+The average time of 1000 update operations is: 430.648021866 seconds
+
+========
+ANALYZER
+========
+The update operation through graphdb is being analyzed
+3 samples were taken
+ - Input increases 10 times
+ - Output: Calculate the ratios
+================================================
+N100/N10=40.846967033/4.656497566=8
+Analysis:  <10
+=============
+
+N1000/N100=430.648021866/40.846967033=10
+Analysis:   equals 10
+=============

@@ -1,0 +1,42 @@
+Note: the database didn't deliver its workload
+
+Displaying the times10n array of orientdb: 
+876563100
+199378300
+150884200
+Displaying the times100n arrayof orientdb: 
+562209600
+380518400
+355125400
+Displaying the times1000n arrayof orientdb: 
+3047601800
+1929050300
+1890606200
+
+Database:orientdb Repetitions:3 Operations:delete
+===========================================================
+The average time of 10 delete operations is: 408941866 nanoseconds
+The average time of 100 delete operations is: 432617800 nanoseconds
+The average time of 1000 delete operations is: 2289086100 nanoseconds
+
+Database:orientdb Repetitions:3 Operations:delete
+===========================================================
+The average time of 10 delete operations is: 0.408941866 seconds
+The average time of 100 delete operations is: 0.432617800 seconds
+The average time of 1000 delete operations is: 2.289086100 seconds
+
+========
+ANALYZER
+========
+The delete operation through orientdb is being analyzed
+3 samples were taken
+ - Input increases 10 times
+ - Output: Calculate the ratios
+================================================
+N100/N10=0.432617800/0.408941866=1
+Analysis:  <10
+=============
+
+N1000/N100=2.289086100/0.432617800=5
+Analysis:  <10
+=============

@@ -1,0 +1,42 @@
+Note: the database didn't deliver its workload
+
+Displaying the times10n array of orientdb: 
+817920100
+146682600
+148915600
+Displaying the times100n arrayof orientdb: 
+374704300
+255563200
+240895700
+Displaying the times1000n arrayof orientdb: 
+1727591900
+1243531800
+1081196500
+
+Database:orientdb Repetitions:3 Operations:update
+===========================================================
+The average time of 10 update operations is: 371172766 nanoseconds
+The average time of 100 update operations is: 290387733 nanoseconds
+The average time of 1000 update operations is: 1350773400 nanoseconds
+
+Database:orientdb Repetitions:3 Operations:update
+===========================================================
+The average time of 10 update operations is: 0.371172766 seconds
+The average time of 100 update operations is: 0.290387733 seconds
+The average time of 1000 update operations is: 1.350773400 seconds
+
+========
+ANALYZER
+========
+The update operation through orientdb is being analyzed
+3 samples were taken
+ - Input increases 10 times
+ - Output: Calculate the ratios
+================================================
+N100/N10=0.290387733/0.371172766=0
+Analysis:  <10
+=============
+
+N1000/N100=1.350773400/0.290387733=4
+Analysis:  <10
+=============

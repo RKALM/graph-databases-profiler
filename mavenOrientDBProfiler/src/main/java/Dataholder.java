@@ -20,8 +20,8 @@ public class Dataholder {
     //Access to databases
     static boolean databases_allowed = true; //when true allows connection to the databases
     static boolean neo4j_script_test = false; //only for the CRUD part. the scripts will run with print statement
-    static boolean graphdb_script_test = true; //only for the CRUD part. the scripts will run with print statement
-    static boolean orientdb_script_test = false; //only for the CRUD part. the scripts will run with print statement
+    static boolean graphdb_script_test = false; //only for the CRUD part. the scripts will run with print statement
+    static boolean orientdb_script_test = true; //only for the CRUD part. the scripts will run with print statement
 
     //Global Variables
     static int round = 0;
@@ -29,7 +29,7 @@ public class Dataholder {
     static int countAddition = 0;
     static int countDeletion = 0;
     static int countUpdate = 0;
-    static String customSeed = "profiling3";
+    static String customSeed = "profiling4";
     static String date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
     static String dateSeed = date.replace("-", "");
 

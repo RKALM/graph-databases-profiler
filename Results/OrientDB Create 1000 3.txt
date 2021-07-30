@@ -1,0 +1,42 @@
+Note: it created 8 nodes instead of 3330.
+
+Displaying the times10n array of orientdb: 
+1081001800
+192390200
+159743300
+Displaying the times100n arrayof orientdb: 
+455533700
+417179500
+251746000
+Displaying the times1000n arrayof orientdb: 
+1841185900
+1051546100
+878323500
+
+Database:orientdb Repetitions:3 Operations:create
+===========================================================
+The average time of 10 create operations is: 477711766 nanoseconds
+The average time of 100 create operations is: 374819733 nanoseconds
+The average time of 1000 create operations is: 1257018500 nanoseconds
+
+Database:orientdb Repetitions:3 Operations:create
+===========================================================
+The average time of 10 create operations is: 0.477711766 seconds
+The average time of 100 create operations is: 0.374819733 seconds
+The average time of 1000 create operations is: 1.257018500 seconds
+
+========
+ANALYZER
+========
+The create operation through orientdb is being analyzed
+3 samples were taken
+ - Input increases 10 times
+ - Output: Calculate the ratios
+================================================
+N100/N10=0.374819733/0.477711766=0
+Analysis:  <10
+=============
+
+N1000/N100=1.257018500/0.374819733=3
+Analysis:  <10
+=============

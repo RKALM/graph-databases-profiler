@@ -1,0 +1,40 @@
+Displaying the times10n array of neo4j: 
+1276081500
+111374600
+80696900
+Displaying the times100n arrayof neo4j: 
+1454524200
+780959000
+506003700
+Displaying the times1000n arrayof neo4j: 
+8430335200
+6700327700
+5936287500
+
+Database:neo4j Repetitions:3 Operations:create
+===========================================================
+The average time of 10 create operations is: 489384333 nanoseconds
+The average time of 100 create operations is: 913828966 nanoseconds
+The average time of 1000 create operations is: 7022316800 nanoseconds
+
+Database:neo4j Repetitions:3 Operations:create
+===========================================================
+The average time of 10 create operations is: 0.489384333 seconds
+The average time of 100 create operations is: 0.913828966 seconds
+The average time of 1000 create operations is: 7.022316800 seconds
+
+========
+ANALYZER
+========
+The create operation through neo4j is being analyzed
+3 samples were taken
+ - Input increases 10 times
+ - Output: Calculate the ratios
+================================================
+N100/N10=0.913828966/0.489384333=1
+Analysis:  <10
+=============
+
+N1000/N100=7.022316800/0.913828966=7
+Analysis:  <10
+=============

@@ -323,7 +323,7 @@ public class Main {
     static void scriptNeo4j(String operation, int Xint) {
         if(Dataholder.databases_allowed){
             if(Dataholder.neo4j_script_test){
-                Dataholder.neo4j = new Neo4jDB( "bolt://localhost:7687", "profiler", "profiler" );
+                Dataholder.neo4j = new Neo4jDB( "bolt://localhost:7687", "neo4j", "profiler" );
             }
         }
         System.out.println("Running " + operation + " script on the Neo4j for several intervals");

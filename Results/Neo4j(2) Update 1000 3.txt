@@ -1,0 +1,40 @@
+Displaying the times10n array of neo4j: 
+1032983400
+83603600
+60231700
+Displaying the times100n arrayof neo4j: 
+676536400
+382794100
+309485900
+Displaying the times1000n arrayof neo4j: 
+4476640700
+3562583300
+2750161200
+
+Database:neo4j Repetitions:3 Operations:update
+===========================================================
+The average time of 10 update operations is: 392272900 nanoseconds
+The average time of 100 update operations is: 456272133 nanoseconds
+The average time of 1000 update operations is: 3596461733 nanoseconds
+
+Database:neo4j Repetitions:3 Operations:update
+===========================================================
+The average time of 10 update operations is: 0.392272900 seconds
+The average time of 100 update operations is: 0.456272133 seconds
+The average time of 1000 update operations is: 3.596461733 seconds
+
+========
+ANALYZER
+========
+The update operation through neo4j is being analyzed
+3 samples were taken
+ - Input increases 10 times
+ - Output: Calculate the ratios
+================================================
+N100/N10=0.456272133/0.392272900=1
+Analysis:  <10
+=============
+
+N1000/N100=3.596461733/0.456272133=7
+Analysis:  <10
+=============

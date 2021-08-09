@@ -6,15 +6,15 @@ public class Dataholder {
     //Variables for configuration of the system
     //Special features
     static boolean analyzer_allowed = true; //is the system that does algorithmic analysis on the performance
-    static boolean print_allowed = false; //it is only when it is connected to a database. print statements take resources
+    static boolean print_allowed = true; //it is only when it is connected to a database. print statements take resources
 
 
     //Intervals
     static boolean million_allowed = false; //if true the system uses 1 million intervals as well
     static boolean N100k_allowed = false; //if true the system uses 100k intervals as well
     static boolean N10k_allowed = false; //if true the system uses 10k intervals as well
-    static boolean N1000_allowed = true; //if true the system uses 1000 intervals as well
-    static boolean N100_allowed = true; //if true the system uses 100 intervals as well
+    static boolean N1000_allowed = false; //if true the system uses 1000 intervals as well
+    static boolean N100_allowed = false; //if true the system uses 100 intervals as well
 
 
     //Access to databases

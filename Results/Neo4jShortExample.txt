@@ -1,0 +1,97 @@
+Welcome to profiler
+===================
+How many repetitions, (for accuracy) you wish to do?
+2
+You decided to run 2 repetitions
+Which protocol do you wish to use: 
+===================
+[1]Neo4j
+[2]GraphDB
+[3]OrientDB
+1
+Which protocol do you wish to use: 
+===================
+[1]Create
+[2]Delete
+[3]Update
+1
+You decided to run 2 repetitions for neo4j database and the create operation
+ 
+ 
+=================================================
+Running create operations on the Neo4j Round #0
+=================================================
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/C:/Users/rober/.m2/repository/org/graalvm/tools/chromeinspector/20.2.0/chromeinspector-20.2.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/C:/Users/rober/.m2/repository/ch/qos/logback/logback-classic/1.1.5/logback-classic-1.1.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
+Aug 05, 2021 1:31:24 AM org.neo4j.driver.internal.logging.JULogger info
+INFO: Direct driver instance 1665620686 created for server address localhost:7687
+Running create script on the Neo4j for several intervals
+=================================================
+ 
+Running create script on the Neo4j for 10 operations
+===========================
+profiling5050820210100, from node 0
+profiling5050820210101, from node 1
+profiling5050820210102, from node 2
+profiling5050820210103, from node 3
+profiling5050820210104, from node 4
+profiling5050820210105, from node 5
+profiling5050820210106, from node 6
+profiling5050820210107, from node 7
+profiling5050820210108, from node 8
+profiling5050820210109, from node 9
+=================================================
+Recorded time for Neo4j 10N is 1653919300
+=================================================
+
+ 
+ 
+=================================================
+Running create operations on the Neo4j Round #1
+=================================================
+Aug 05, 2021 1:31:26 AM org.neo4j.driver.internal.logging.JULogger info
+INFO: Direct driver instance 1450652220 created for server address localhost:7687
+Running create script on the Neo4j for several intervals
+=================================================
+ 
+Running create script on the Neo4j for 10 operations
+===========================
+profiling5050820211100, from node 10
+profiling5050820211101, from node 11
+profiling5050820211102, from node 12
+profiling5050820211103, from node 13
+profiling5050820211104, from node 14
+profiling5050820211105, from node 15
+profiling5050820211106, from node 16
+profiling5050820211107, from node 17
+profiling5050820211108, from node 18
+profiling5050820211109, from node 19
+=================================================
+Recorded time for Neo4j 10N is 321142200
+=================================================
+
+Displaying the times10n array of neo4j: 
+1653919300
+321142200
+
+Database:neo4j Repetitions:2 Operations:create
+===========================================================
+The average time of 10 create operations is: 987530750 nanoseconds
+
+Database:neo4j Repetitions:2 Operations:create
+===========================================================
+The average time of 10 create operations is: 0.987530750 seconds
+
+========
+ANALYZER
+========
+The create operation through neo4j is being analyzed
+2 samples were taken
+ - Input increases 10 times
+ - Output: Calculate the ratios
+================================================
+
+Process finished with exit code 0

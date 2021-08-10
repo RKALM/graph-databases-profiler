@@ -85,13 +85,4 @@ Database:neo4j Repetitions:2 Operations:create
 ===========================================================
 The average time of 10 create operations is: 0.987530750 seconds
 
-========
-ANALYZER
-========
-The create operation through neo4j is being analyzed
-2 samples were taken
- - Input increases 10 times
- - Output: Calculate the ratios
-================================================
-
 Process finished with exit code 0

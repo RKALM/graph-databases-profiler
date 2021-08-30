@@ -225,13 +225,11 @@ In conclusion possible topic for future research can be:
 • Efficient FIFO and LIFO operations on Databases
 • Definition of graph databases
 • Investigation of the theoretical complexity of Graph Databases
-References
+## References
 1. R. A. A Comparison of Current Graph Database Models. In IEEE 28th International Conference on Data Engineering Workshops; 2012; Arlington, VA, USA. p. 171-177.
 2. Ricardo CM, Urban SD. Databases illuminated. 3rd ed.: Jones and Bartlett Publishers, Inc; 2015.
-3.
-Weiss MA. Data structures and algorithm analysis in Java. 3rd ed. Harlow, Essex: Pearson; 2012.
-4.
-Kotsev V, Minadakis N, Papakonstantinou V, Erling O, Fundulaki I, Kiryakov A. Benchmarking RDF Query Engines: The LDBC Semantic Publishing Benchmark. In CEUR Workshop Proceedings; 2016.
+3. Weiss MA. Data structures and algorithm analysis in Java. 3rd ed. Harlow, Essex: Pearson; 2012.
+4. Kotsev V, Minadakis N, Papakonstantinou V, Erling O, Fundulaki I, Kiryakov A. Benchmarking RDF Query Engines: The LDBC Semantic Publishing Benchmark. In CEUR Workshop Proceedings; 2016.
 5. Lopez FMS, Cruz ESDl. Literature review about Neo4j graph database as a feasible alternative for replacing RDBMS. Industrial Data. 2015; 18: p. 135-
 6. Zhang C, Lu J. Holistic evaluation in multi-model databases benchmarking. Distrib Parallel Databases. 2021.
 7. Jarrah M, Al-khatieb B, Mahasneh N, Al-khateeb B, Jararweh Y. GDBApex: A graph-based system to enable efficient transformation of enterprise infrastructures. Softw Pract Exper. 2021;: p. 517– 531.

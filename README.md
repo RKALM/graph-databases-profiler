@@ -28,7 +28,7 @@ As different Graph Databases are getting gathered to compete with the other Data
 The idea is about a qualitative comparison between Neo4j, GraphDB and OrientDB, (three graph databases that were selected because they are compatible with Java), with a final goal to draw a conclusion about which of those three Databases is suitable for each different CRUD, (Create Read, Update, Delete), operation. Research literature will be used in a large scale, as the best source of information now is the existent documentation for each database, and there is the desire to use profiling as well to compare, (in a smaller scale), the performance of each Database on CRUD operations for each of the selected databases. The specific three databases were selected because of their popularity and because they are compatible with Java which we intent to use for profiling.
 The authors, (R. Alm and L. Imeri), wish to consider analysing each of the three Graph Databases with the goal to classify the different characteristics of each Database, and how each of them can be used properly.
 Source of Inspiration for this Idea are the books, “Databases Illuminated” [2] and “Data Structures and Algorithmic Analysis in Java” [3], and it is expected that other publications about the topic will be used, as the complexity of the topic requires deep and variant research literature. The special technical characteristics of the many known Databases are highlighting the need for the use of a technical documentation for each of the selected databases, which can be found in the official web pages of each Database.
-Research Questions
+#### Research Questions
 1. What is the theoretical complexity on CRUD operations of Neo4J, GraphDB and OrientDB Databases?
 2. What is the practical performance of Neo4j, GraphDB and OrientDB on their CRUD operations in terms of time?
 3. How do the theoretical complexity conforms with the practical performance of Neo4j, GraphDB and OrientDB. Why do those three Databases act that way?
@@ -197,12 +197,13 @@ Our opinion is that such operations are still possible and that is because of th
 At last, and with the thought that databases should inherit characteristics from their most related data structures, we believe that there are many ways to make databases algorithm-friendly and to improving their performance even more.
 ## Conclusion
 ### Research Questions
-Question 1: What is the theoretical complexity on CRUD operations of Neo4j, GraphDB and OrientDB Databases?
+#### Question 1: What is the theoretical complexity on CRUD operations of Neo4j, GraphDB and OrientDB Databases?
 Answer: While OrientDB is excluded as its theoretical complexity can’t be compared with its experimental one, (because OrientDB does not work), all of the databases tend to have a theoretical complexity slightly below O(N) and with worst case O(N^2), which was not reached during our profiling, (apart of OrientDB which was excluded). The theoretical complexity was assumed, based on indicators and there is the opportunity for further study in future works.
 
-Question 2: What is the practical performance of Neo4j, GraphDB and OrientDB on their CRUD operations in terms of time?
+#### Question 2: What is the practical performance of Neo4j, GraphDB and OrientDB on their CRUD operations in terms of time?
 Answer: OrientDB Failed to deliver. The other 2 Databases had a standard duration for each operation which was a constant. Neo4J needed less time to perform each operation during the profiling in comparison with GraphDB’s performance. The analysis of the performance indicates a linear regression.
-Question 3: How do the theoretical complexity conforms with the practical performance of Neo4j, GraphDB and OrientDB. Why do those three Databases act that way?
+
+#### Question 3: How do the theoretical complexity conforms with the practical performance of Neo4j, GraphDB and OrientDB. Why do those three Databases act that way?
 Answer: Theoretically OrientDB uses the memory of the computer, which makes its operations to take less time to be performed, with the trade-off that a serious buffer management is needed. In practice OrientDB Failed to deliver, so, any benefit of its structure remains theoretical at the time. Neo4J which had the best performance, is optimized to be a stand-alone solution, but its file structure offers an impressive scalability as it allows many operations to be performed in each iteration.
 GraphDB is designed to work on the backbone of the web, and it is a good solution for distributed systems, as it offers, theoretically, unlimited capacity and the ability to perform complex queries on a large amount of publicly available data.
 Based on the our theoretical and practical indicators we can assume a O(N) average for at least the two of the Graph Databases, (Neo4J and GraphDB), but this can be a subject for further study.
